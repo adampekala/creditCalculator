@@ -1,8 +1,8 @@
 {
-  "name": "es6-react",
-  "version": "2.1.0",
+  "name": "webpack",
+  "version": "1.0.0",
   "scripts": {
-    "start": "webpack serve",
+    "start": "webpack-dev-server",
     "build": "webpack"
   },
   "devDependencies": {
@@ -17,8 +17,19 @@
     "webpack-dev-server": "4.9.0"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.7",
+    "babel-plugin-minify-dead-code-elimination": "^0.5.2",
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "postcss-loader": "^7.0.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "sass": "^1.52.1",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1",
     "react-router-dom": "^6.3.0"
-  }
+  },
+  "browserslist": ["> 1%", "last 2 versions", "ie 6-8", "Firefox > 20", "since 2015"]
 }
