@@ -1,7 +1,11 @@
-import React, {Component, useEffect, useState} from "react";
+import React, {Component, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
+import { HashRouter, Routes, Route, Link, NavLink, Outlet} from "react-router-dom";
 
 import Header from "./Layout/layout";
+import Welcome from "./Home/welcome";
+import Login from "./Login/login";
+import MainApplication from "./Main/mainApplication";
 
 // const API = "http://localhost:3005";
 //
@@ -105,4 +109,15 @@ import Header from "./Layout/layout";
 const container = document.getElementById("app");
 const root = createRoot(container);
 
-root.render(<Header/>);
+root.render(<HashRouter>
+    <Routes>
+            <Route path="/" element={<Header/>}>
+                <Route path='home' element={<Welcome/>}/>
+                <Route path='login' element={<Login/>}/>
+                <Route path='calculator' element={<MainApplication/>}/>
+
+            </Route>
+
+
+    </Routes>
+</HashRouter>);

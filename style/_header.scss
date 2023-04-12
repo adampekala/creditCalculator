@@ -1,0 +1,53 @@
+.topBar {
+  min-width: 800px;
+  max-width: 1200px;
+  padding: 20px 50px;
+  border-radius: 50px;
+  margin: 30px 5vw 30px 5vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.logo-el1 {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  border-radius: 50%;
+  position: relative;
+}
+.logo-el2{
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 5px solid #9E107F;
+  background-color: white;
+  top: 3px;
+  left: 3px;
+
+}
+
+.iconsContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  border-radius: 50%;
+  position: relative;
+}

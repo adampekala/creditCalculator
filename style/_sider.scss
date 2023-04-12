@@ -1,0 +1,134 @@
+.sider {
+  width: 350px;
+  height: 80vh;
+  box-shadow: 1px 0px 7px 0px #00000036;
+  border-radius: 50px;
+}
+
+.siderHistory-title {
+  margin: 0;
+  border-radius: 50px 50px 0 0;
+  padding: 20px 0;
+  text-align: center;
+}
+.siderHistory-calcName {
+  border-bottom: 1px solid #9E107F;
+  margin: 20px 30px;
+  padding-bottom: 5px;
+}
+
+ul {
+  list-style-type: disc;
+}
+.siderHistory-calcList-item {
+  display: flex;
+  align-items: center;
+  padding: 2px 0;
+  span:first-child {
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin-right: 20px;
+    background-color: #9E107F;
+    border-radius: 50%;
+  }
+  span:nth-child(2) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  span:last-child {
+    //display: inline-block;
+    margin-left: Auto;
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    svg:first-child {
+      &:hover {
+        border-radius: 50%;
+        box-shadow: 0px 3px 8px 3px #9E107F inset;
+      }
+    }
+    svg:last-child {
+      &:hover {
+        border-radius: 50%;
+        box-shadow: 0px 3px 8px 3px transparent inset;
+      }
+    }
+  }
+  img {
+    border-radius: 50%;
+    border: 1px solid transparent;
+
+    &:hover {
+      box-shadow: 1px 1px 2px blue;
+      border: 1px solid grey;
+    }
+  }
+  button {
+    border-style: none;
+    //font-size: 30px;
+    padding: 1px 3px 0;
+    border-radius: 2px;
+    &:hover {
+      background-color: darken(#0F9BFF, 10%);
+    }
+  }
+}
+
+.siderHistory-calcChart-title {
+  margin: 20px 30px;
+  padding: 5px;
+  text-align: center;
+}
+
+.siderHistory-calcChart-chart {
+  width: 150px;
+  height: 150px;
+  margin: 40px auto 0 auto;
+  background-color: white;
+  border: 35px solid #9E107F;
+  box-shadow: -5px 10px 10px 0px lightgrey;
+  border-radius: 50%;
+  position: relative;
+}
+.siderHistory-calcChart-chart2 {
+  width: 150px;
+  height: 150px;
+  background-color: transparent;
+  border: 35px solid #0F9BFF;
+  border-left: 35px solid transparent;
+  border-radius: 50%;
+  box-shadow: 5px -10px 10px 0px grey inset;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transform: translate(-35px, -35px) rotate(225deg);
+}
+
+.siderHistory-calcChart-credit {
+  position: absolute;
+  top: -50px;
+  left: -100px;
+  color: #0F9BFF;
+  font-size: large;
+
+}
+
+.siderHistory-calcChart-interests {
+  position: absolute;
+  bottom: -50px;
+  right: -100px;
+  color: #9E107F;
+  font-size: large;
+}
+
+.siderHistory-calcChart-bottomLine {
+  //width: 100px;
+  margin: 20px;
+  margin-top: 50px;
+  height: 2px;
+  background-color: #9E107F;
+}
