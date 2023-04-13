@@ -41,7 +41,7 @@ const Welcome = () => {
                 </li>
             </ul>
 
-            <Link to='/login' className={"thirdColor"}>Skorzystaj z kalkulatora</Link>
+            <Link to='/login' className={"thirdColor logLink"}>Skorzystaj z kalkulatora</Link>
 
         </div>
     </div>)

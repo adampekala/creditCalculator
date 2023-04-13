@@ -1,8 +1,15 @@
 .welcome {
-  max-width: 1200px;
+  max-width: 1300px;
   display: flex;
   border-radius: 50px;
   box-shadow: 1px 0px 7px 0px rgba(0, 0, 0, 0.2117647059);
+  margin: 2.5rem;
+  height: 600px;
+}
+@media screen and (min-width: 1300px) {
+  .welcome {
+    margin: 2.5rem Auto;
+  }
 }
 
 .welcomeLeftPhoto {
@@ -28,27 +35,41 @@
 }
 
 .welcomeHero h1 {
-  padding-left: 40px;
+  padding-left: 60px;
 }
 .welcomeHero p {
-  padding-left: 40px;
-  margin-right: 40px;
-  font-size: 1.5rem;
+  padding-left: 60px;
+  margin-right: 60px;
+  font-size: 1.8rem;
   text-decoration: underline;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .welcomeHero-list {
   list-style: none;
   display: flex;
   flex-direction: column;
+  padding-left: 60px;
   gap: 10px;
 }
 .welcomeHero-list li {
   display: flex;
   align-items: center;
   gap: 30px;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+}
+
+.logLink {
+  display: block;
+  padding: 1.7rem 5rem;
+  margin-left: 60px;
+  margin-top: 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 2rem;
+}
+.logLink:hover {
+  background-color: #0080db;
 }
 
 .sider {
@@ -179,14 +200,18 @@ ul {
 }
 
 .topBar {
-  min-width: 800px;
   max-width: 1200px;
   padding: 20px 50px;
   border-radius: 50px;
-  margin: 30px 5vw 30px 5vw;
+  margin: 2.5rem;
   display: flex;
   justify-content: space-between;
   font-size: 30px;
+}
+@media screen and (min-width: 1300px) {
+  .topBar {
+    margin: 2.5rem Auto;
+  }
 }
 
 .logoContainer {
@@ -214,6 +239,11 @@ ul {
   background-color: white;
   top: 3px;
   left: 3px;
+}
+
+.mainLogoHomeLink {
+  text-decoration: none;
+  color: white;
 }
 
 .iconsContainer {

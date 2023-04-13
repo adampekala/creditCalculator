@@ -1,8 +1,18 @@
+@use "sass:color";
+
+$welcomeMargin: 60px;
+
 .welcome {
-  max-width: 1200px;
+  max-width: 1300px;
   display: flex;
   border-radius: 50px;
   box-shadow: 1px 0px 7px 0px #00000036;
+  margin: 2.5rem;
+  height: 600px;
+  @media screen and (min-width: 1300px) {
+    margin: 2.5rem Auto;
+  }
+
 }
 
 .welcomeLeftPhoto {
@@ -31,14 +41,14 @@
 
 .welcomeHero {
   h1 {
-    padding-left: 40px;
+    padding-left: $welcomeMargin;
   }
   p {
-    padding-left: 40px;
-    margin-right: 40px;
-    font-size: 1.5rem;
+    padding-left: $welcomeMargin;
+    margin-right: $welcomeMargin;
+    font-size: 1.8rem;
     text-decoration: underline;
-    margin-bottom: 40px;
+    margin-bottom: $welcomeMargin;
   }
 }
 
@@ -46,11 +56,25 @@
   list-style: none;
   display: flex;
   flex-direction: column;
+  padding-left: $welcomeMargin;
   gap: 10px;
   li {
     display: flex;
     align-items: center;
     gap: 30px;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+  }
+}
+
+.logLink {
+  display: block;
+  padding: 1.7rem 5rem;
+  margin-left: $welcomeMargin;
+  margin-top: calc($welcomeMargin/2);
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 2.0rem;
+  &:hover {
+    background-color: darken(#0F9BFF, 10%);
   }
 }
