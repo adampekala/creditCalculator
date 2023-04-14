@@ -1,20 +1,82 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "John",
-      "surname": "Doe",
-      "age": 25,
-      "city": "Warsaw",
-      "gender": "male"
+      "id": "adam",
+      "password": "111"
     },
     {
-      "name": "aaddddd",
-      "surname": "dsds",
-      "age": "dsdsd",
-      "city": "Łodź",
-      "gender": "male",
-      "id": 2
+      "id": "marcin",
+      "password": "222"
+    }
+  ],
+
+  "adam": [
+    {
+      "id": "adam",
+      "name": "Adam",
+      "credits": [
+        {
+          "date": "2023.01.23",
+          "amount": "1000000.00",
+          "rate": "0.02"
+        }
+      ],
+      "loans": [
+        {
+          "date": "2023.01.23",
+          "amount": "1000000.00",
+          "rate": "0.02"
+        }
+      ],
+      "bonds": [
+        {
+          "date": "2023.01.23",
+          "amount": "1000000.00",
+          "rate": "0.02"
+        }
+      ],
+      "deposits": [
+        {
+          "date": "2023.01.23",
+          "amount": "1000000.00",
+          "rate": "0.02"
+        }
+      ]
+
+    }
+  ],
+  "marcin": [
+    {
+      "id": "marcin",
+      "name": "Marcin",
+      "credits": [
+        {
+          "date": "2023.01.23",
+          "amount": "2000000.00",
+          "rate": "0.01"
+        }
+      ],
+      "loans": [
+        {
+          "date": "2023.01.23",
+          "amount": "2000000.00",
+          "rate": "0.01"
+        }
+      ],
+      "bonds": [
+        {
+          "date": "2023.01.23",
+          "amount": "2000000.00",
+          "rate": "0.01"
+        }
+      ],
+      "deposits": [
+        {
+          "date": "2023.01.23",
+          "amount": "2000000.00",
+          "rate": "0.01"
+        }
+      ]
     }
   ]
 }
