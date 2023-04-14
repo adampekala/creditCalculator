@@ -6,7 +6,32 @@ import {BsBank} from "react-icons/bs"
 import {Link} from 'react-router-dom'
 
 const Login = (props) => {
-    const iconsStyle = {width: "50px", height: "50px"};
+    const [login, setLogin] = useState("Wpisz Login...");
+    const [password, setPassword] = useState("Wpisz hasło...");
+
+    const handleLoginFocus = (e) => {
+        e.target.value === "Wpisz Login..." && setLogin("");
+    }
+
+    const handlePasswordFocus = (e) => {
+        e.target.value === "Wpisz hasło..." && setPassword("");
+    }
+
+    const handleLoginBlur = (e) => {
+        e.target.value === "" && setLogin("Wpisz Login...");
+    }
+
+    const handlePasswordBlur = (e) => {
+        e.target.value === "" && setPassword("Wpisz hasło...");
+    }
+    const handleChangeLogin = (e) => {
+        setLogin(e.target.value);
+    }
+
+    const handleChangePassword = (e) => {
+        setPassword(e.target.value);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
     }
@@ -30,9 +55,9 @@ const Login = (props) => {
         loginAppearence = <div className="loginHero contrastColor">
         <h1>Witaj</h1>
         <form onSubmit={handleSubmit}>
-            <label style={{display: "block", position: "relative", width: "400px"}}><input type={"text"} name={"amount"} value={"Wpisz Login..."}/><span className={"inputAmount-caurrency"} style={{display: "block", position: "absolute"}}>Login</span></label>
+            <label style={{display: "block", position: "relative", width: "400px"}}><input type={"text"} name={"login"} value={login} onFocus={handleLoginFocus} onBlur={handleLoginBlur} onChange={handleChangeLogin}/><span className={"inputAmount-caurrency"} style={{display: "block", position: "absolute"}}>Login</span></label>
 
-            <label style={{display: "block", position: "relative", width: "400px"}}><input type={"text"} name={"amount"} value={"Wpisz hasło..."}/><span className={"inputAmount-caurrency"} style={{display: "block", position: "absolute"}}>Hasło</span></label>
+            <label style={{display: "block", position: "relative", width: "400px"}}><input type={password === "Wpisz hasło..." ? "text" : "password"} name={"password"} value={password} onFocus={handlePasswordFocus} onBlur={handlePasswordBlur} onChange={handleChangePassword}/><span className={"inputAmount-caurrency"} style={{display: "block", position: "absolute"}}>Hasło</span></label>
 
 
             <Link to="/calculator"><button className={"loginBtnLog"} onClick={handleClick}>Zaloguj</button></Link>
