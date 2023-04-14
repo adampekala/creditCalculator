@@ -7,24 +7,34 @@ import Welcome from "./Home/welcome";
 import Login from "./Login/login";
 import MainApplication from "./Main/mainApplication";
 import Information from "./Home/information";
+import Registration from "./Registration/registration";
 
 const container = document.getElementById("app");
 const root = createRoot(container);
+const Application = () => {
+    const [logged, setLogged] = useState(false);
 
-root.render(
-    <HashRouter>
-        <Routes>
-                <Route path="/" element={<Layout/>}>
-                    <Route path='' element={<Welcome/>}/>
-                    <Route path='info' element={<Information/>}/>
-                    <Route path='login' element={<Login/>}/>
+    return (
+        <HashRouter>
+            <Routes>
+                <Route path="/" element={<Layout userLogIn={logged} setUserLogIi={setLogged}/>}>
+                    <Route path='' element={<Welcome userLogIn={logged}/>}/>
+                    <Route path='info' element={<Information userLogIn={logged}/>}/>
+                    <Route path='login' element={<Login userLogIn={logged} setUserLogIn={setLogged}/>}/>
+                    <Route path='registration' element={<Registration userLogIn={logged} setUserLogIn={setLogged}/>}/>
                     <Route path='calculator'>
-                        <Route path='credit' element={<MainApplication/>}/>
-                        <Route path='loan' element={<MainApplication/>}/>
-                        <Route path='deposit' element={<MainApplication/>}/>
-                        <Route path='bond' element={<MainApplication/>}/>
+                        <Route path='' element={<MainApplication userLogIn={logged}/>}/>
+                        <Route path='loan' element={<MainApplication userLogIn={logged}/>}/>
+                        <Route path='deposit' element={<MainApplication userLogIn={logged}/>}/>
+                        <Route path='bond' element={<MainApplication userLogIn={logged}/>}/>
                     </Route>
                 </Route>
-        </Routes>
-    </HashRouter>
+            </Routes>
+        </HashRouter>
+    )
+}
+
+
+root.render(
+    <Application/>
 );

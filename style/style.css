@@ -343,6 +343,230 @@ ul {
   background-color: #0080db;
 }
 
+.login {
+  max-width: 1300px;
+  display: flex;
+  border-radius: 50px;
+  box-shadow: 1px 0px 7px 0px rgba(0, 0, 0, 0.2117647059);
+  margin: 2rem;
+  height: 530px;
+}
+@media screen and (min-width: 1300px) {
+  .login {
+    margin: 2.5rem Auto;
+  }
+}
+
+.loginLeftPhoto {
+  width: 350px;
+  background-image: url("../pictures/pexels-fauxels-3184610.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border-radius: 50px 0 0 50px;
+}
+.loginLeftPhoto::after {
+  content: "";
+  background-color: rgba(158, 16, 127, 0.72);
+  border-radius: 50px 0 0 50px;
+  height: 100%;
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.loginHero h1 {
+  padding-left: 60px;
+}
+.loginHero p {
+  padding-left: 60px;
+  margin-right: 60px;
+  font-size: 1.7rem;
+  margin-top: 5px;
+}
+
+.loginBtnLog {
+  background-color: #0F9BFF;
+  color: white;
+  width: 400px;
+  height: 40px;
+  border-style: none;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  margin-left: 30px;
+  margin-top: 50px;
+}
+
+.logLink {
+  display: block;
+  padding: 1rem 2rem;
+  margin-left: 60px;
+  margin-top: 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 2rem;
+  text-align: center;
+}
+.logLink:hover {
+  background-color: #0080db;
+}
+
+.calculatorChoice {
+  width: 300px;
+  margin-left: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.calculatorChoice a {
+  width: 120px;
+  height: 150px;
+  background-color: #0F9BFF;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px 0 grey;
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.calculatorChoice a:hover {
+  background-color: #0080db;
+}
+.calculatorChoice a div:first-child {
+  height: 80%;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.calculatorChoice a div:first-child svg {
+  width: 60px;
+  height: 60px;
+}
+
+.loginRegistrationLink {
+  font-size: 0.8rem;
+  color: #9E107F;
+}
+
+.registration {
+  max-width: 1300px;
+  display: flex;
+  border-radius: 50px;
+  box-shadow: 1px 0px 7px 0px rgba(0, 0, 0, 0.2117647059);
+  margin: 2rem;
+  height: 530px;
+}
+@media screen and (min-width: 1300px) {
+  .registration {
+    margin: 2.5rem Auto;
+  }
+}
+
+.registrationLeftPhoto {
+  width: 350px;
+  background-image: url("../pictures/pexels-fauxels-3184610.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border-radius: 50px 0 0 50px;
+}
+.registrationLeftPhoto::after {
+  content: "";
+  background-color: rgba(158, 16, 127, 0.72);
+  border-radius: 50px 0 0 50px;
+  height: 100%;
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.registrationHero h1 {
+  padding-left: 60px;
+}
+.registrationHero p {
+  padding-left: 60px;
+  margin-right: 60px;
+  font-size: 1.7rem;
+  margin-top: 5px;
+}
+
+.registrationBtnLog {
+  background-color: #0F9BFF;
+  color: white;
+  width: 400px;
+  height: 40px;
+  border-style: none;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  margin-left: 30px;
+  margin-top: 50px;
+}
+
+.logLink {
+  display: block;
+  padding: 1rem 2rem;
+  margin-left: 60px;
+  margin-top: 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 2rem;
+  text-align: center;
+}
+.logLink:hover {
+  background-color: #0080db;
+}
+
+.calculatorChoice {
+  width: 300px;
+  margin-left: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.calculatorChoice a {
+  width: 120px;
+  height: 150px;
+  background-color: #0F9BFF;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px 0 grey;
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.calculatorChoice a:hover {
+  background-color: #0080db;
+}
+.calculatorChoice a div:first-child {
+  height: 80%;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.calculatorChoice a div:first-child svg {
+  width: 60px;
+  height: 60px;
+}
+
+.loginRegistrationLink {
+  font-size: 0.8rem;
+  color: #9E107F;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;

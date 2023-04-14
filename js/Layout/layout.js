@@ -3,11 +3,11 @@ import {Outlet} from "react-router-dom";
 
 import Header from "./header";
 
-const Layout = () => {
-    const [logIn, setLogIn] = useState(false);
+const Layout = (props) => {
+
     return (
         <>
-            <Header userLogIn={logIn}/>
+            <Header userLogIn={props.userLogIn}/>
             <Outlet/>
         </>
     )

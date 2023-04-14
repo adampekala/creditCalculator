@@ -5,7 +5,7 @@ import {TbPigMoney} from "react-icons/tb";
 import {BsBank} from "react-icons/bs"
 import {Link} from 'react-router-dom'
 
-const Information = () => {
+const Information = (props) => {
     const iconsStyle = {width: "40px", height: "40px"};
     return (
         <div className="info">
@@ -32,7 +32,7 @@ const Information = () => {
 
                 </p>
 
-                <Link to='/login' className={"thirdColor logLink"}>Skorzystaj z kalkulatora</Link>
+                <Link to={props.userLogIn ? '/calculator' : '/login'} className={"thirdColor logLink"}>Skorzystaj z kalkulatora</Link>
 
             </div>
         </div>)

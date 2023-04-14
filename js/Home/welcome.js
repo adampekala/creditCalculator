@@ -1,12 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import {FaMoneyBillAlt} from "react-icons/fa";
 import {GiReceiveMoney} from "react-icons/gi";
 import {TbPigMoney} from "react-icons/tb";
-import {BsBank} from "react-icons/bs"
-import {Link} from 'react-router-dom'
+import {BsBank} from "react-icons/bs";
+import {Link} from 'react-router-dom';
 
-const Welcome = () => {
+const Welcome = (props) => {
+    const [isLogged, setIsLogged] = useState(props.userLogIn);
+
+
+
     const iconsStyle = {width: "50px", height: "50px"};
+
     return (
     <div className="welcome">
         <div className="welcomeLeftPhoto">
@@ -41,7 +46,7 @@ const Welcome = () => {
                 </li>
             </ul>
 
-            <Link to='/login' className={"thirdColor logLink"}>Skorzystaj z kalkulatora</Link>
+            <Link to={props.userLogIn ? '/calculator' : '/login'} className={"thirdColor logLink"}>Skorzystaj z kalkulatora</Link>
 
         </div>
     </div>)

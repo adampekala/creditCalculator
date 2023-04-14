@@ -1,0 +1,123 @@
+@use "sass:color";
+
+$loginMargin: 60px;
+
+.login {
+  max-width: 1300px;
+  display: flex;
+  border-radius: 50px;
+  box-shadow: 1px 0px 7px 0px #00000036;
+  margin: 2.0rem;
+  height: 530px;
+  @media screen and (min-width: 1300px) {
+    margin: 2.5rem Auto;
+  }
+
+}
+
+.loginLeftPhoto {
+  width: 350px;
+  background-image: url("../pictures/pexels-fauxels-3184610.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border-radius: 50px 0 0 50px;
+  &::after {
+    content: "";
+    background-color: rgba(158, 16, 127, 0.72);
+    //width: 200px;
+    border-radius: 50px 0 0 50px;
+    height: 100%;
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+
+  }
+}
+
+.loginHero {
+  h1 {
+    padding-left: $loginMargin;
+  }
+  p {
+    padding-left: $loginMargin;
+    margin-right: $loginMargin;
+    font-size: 1.7rem;
+    margin-top: 5px;
+  }
+}
+
+.loginBtnLog {
+  background-color: #0F9BFF;
+  color: white;
+  width: 400px;
+  height: 40px;
+  border-style: none;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  margin-left: 30px;
+  margin-top: 50px;
+}
+
+
+.logLink {
+  display: block;
+  padding: 1rem 2rem;
+  margin-left: $loginMargin;
+  margin-top: calc($loginMargin/3);
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 2.0rem;
+  text-align: center;
+  &:hover {
+    background-color: darken(#0F9BFF, 10%);
+  }
+}
+
+
+
+.calculatorChoice {
+  width: 300px;
+  margin-left: $loginMargin;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  a {
+    width: 120px;
+    height: 150px;
+    background-color: #0F9BFF;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px 0 grey;
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    &:hover {
+      background-color: darken(#0F9BFF, 10%);
+    }
+    div:first-child {
+      height: 80%;
+      padding-top: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      svg {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+  }
+}
+
+.loginRegistrationLink {
+  font-size: 0.8rem;
+  color: #9E107F;
+}

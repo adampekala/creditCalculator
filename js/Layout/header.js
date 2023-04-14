@@ -1,8 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import {MdLockOutline, MdQuestionMark} from "react-icons/md";
 import {Link} from "react-router-dom";
+import {BsBank} from "react-icons/bs";
 
-const Header = () => {
+const Header = (props) => {
+    const iconsStyle = {width: "50px", height: "50px", color: "white"};
+
+    // const [loggedIn, setLoggedIn] = useState(props.userLogIn);
+    // const [loggedIn, setLoggedIn] = useState(true);
+
+
     return (
         <header className={"mainColor topBar"}>
             <div className={"logoContainer"}>
@@ -14,8 +21,9 @@ const Header = () => {
                 <Link to='/info' className={"infoIconLink"}>
                     <MdQuestionMark style={{width: "50px", height: "50px", color: "white"}}/>
                 </Link>
-                <Link to='/login' className={"logIconLink"}>
-                    <MdLockOutline style={{width: "50px", height: "50px", color: "white"}}/>
+                <Link to={props.userLogIn ? '/calculator' : '/login'} className={"logIconLink"}>
+                    {props.userLogIn ? <BsBank style={iconsStyle}/> : <MdLockOutline style={iconsStyle}/>
+                    }
                 </Link>
 
             </div>
