@@ -1,5 +1,5 @@
 import React from "react";
-import SiderHistory from "../Sider/sider";
+// import SiderHistory from "../Sider/sider";
 
 const MainApplication = () => {
     return (
@@ -14,7 +14,7 @@ const MainApplication = () => {
                 </ul>
             </div>
             <div className="mainCalculator">
-                <h1>Oblicz raty kredytu</h1>
+                <h1>Oblicz raty kredytu szkalala</h1>
                 <form>
                     <label style={{display: "block", position: "relative", width: "400px"}}><input type={"text"} name={"amount"} value={"Wpisz kwotę kredytu"}/><span className={"inputAmount-caurrency"} style={{display: "block", position: "absolute"}}>PLN</span></label>
 

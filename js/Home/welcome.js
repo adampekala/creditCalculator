@@ -46,7 +46,7 @@ const Welcome = (props) => {
                 </li>
             </ul>
 
-            <Link to={props.userLogIn ? '/calculator' : '/login'} className={"thirdColor logLink"}>Skorzystaj z kalkulatora</Link>
+            <Link to={'/login'} className={"thirdColor logLink"}>Skorzystaj z kalkulatora</Link>
 
         </div>
     </div>)

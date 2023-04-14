@@ -21,7 +21,7 @@ const Header = (props) => {
                 <Link to='/info' className={"infoIconLink"}>
                     <MdQuestionMark style={{width: "50px", height: "50px", color: "white"}}/>
                 </Link>
-                <Link to={props.userLogIn ? '/calculator' : '/login'} className={"logIconLink"}>
+                <Link to={props.userLogIn ? '/userData' : '/login'} className={"logIconLink"}>
                     {props.userLogIn ? <BsBank style={iconsStyle}/> : <MdLockOutline style={iconsStyle}/>
                     }
                 </Link>

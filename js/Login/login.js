@@ -6,8 +6,14 @@ import {BsBank} from "react-icons/bs"
 import {Link} from 'react-router-dom'
 
 const Login = (props) => {
+    const API = "http://localhost:3005"
     const [login, setLogin] = useState("Wpisz Login...");
     const [password, setPassword] = useState("Wpisz hasło...");
+
+    console.log(props.data);
+    const gettingData = () => {
+        fetch(`${API}/${login}`).then(resp => resp.json()).then(data => props.changingData(data)).catch(reject => console.log(reject))
+    }
 
     const handleLoginFocus = (e) => {
         e.target.value === "Wpisz Login..." && setLogin("");
@@ -35,9 +41,11 @@ const Login = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
     }
+
+
     const handleClick = (e) => {
         e.preventDefault();
-        props.setUserLogIn(true);
+        fetch(`${API}/users/${login}`).then(resp => resp.json()).then(data => data.password === password ? props.setUserLogIn(true) : props.setUserLogIn(false)).catch(reject => console.log(reject));
 
     }
 
@@ -45,10 +53,10 @@ const Login = (props) => {
     props.userLogIn ? loginAppearence = <div className="loginHero contrastColor">
         <h1>Wybierz kalkulator</h1>
         <div className={"calculatorChoice"}>
-        <Link to="/calculator"><div className={"CalculatorChoice-btn"}><BsBank/><span>Kredyt</span></div></Link>
-        <Link to="/calculator/loan"><div className={"CalculatorChoice-btn"}><GiReceiveMoney/><span>Pożyczka</span></div></Link>
-        <Link to="/calculator/deposit"><div className={"CalculatorChoice-btn"}><TbPigMoney/><span>Lokata</span></div></Link>
-        <Link to="/calculator/bond"><div className={"CalculatorChoice-btn"}><FaMoneyBillAlt/><span>Obligacje</span></div></Link>
+        <Link to="/calculator" onClick={gettingData} ><div className={"CalculatorChoice-btn"}><BsBank/><span>Kredyt</span></div></Link>
+        <Link to="/calculator/loan" onClick={gettingData} ><div className={"CalculatorChoice-btn"}><GiReceiveMoney/><span>Pożyczka</span></div></Link>
+        <Link to="/calculator/deposit" onClick={gettingData} ><div className={"CalculatorChoice-btn"} ><TbPigMoney/><span>Lokata</span></div></Link>
+        <Link to="/calculator/bond" onClick={gettingData}><div className={"CalculatorChoice-btn"}><FaMoneyBillAlt/><span>Obligacje</span></div></Link>
         </div>
     </div>
         :
