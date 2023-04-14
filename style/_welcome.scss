@@ -7,8 +7,8 @@ $welcomeMargin: 60px;
   display: flex;
   border-radius: 50px;
   box-shadow: 1px 0px 7px 0px #00000036;
-  margin: 2.5rem;
-  height: 600px;
+  margin: 2.0rem;
+  height: 530px;
   @media screen and (min-width: 1300px) {
     margin: 2.5rem Auto;
   }
@@ -46,9 +46,9 @@ $welcomeMargin: 60px;
   p {
     padding-left: $welcomeMargin;
     margin-right: $welcomeMargin;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     text-decoration: underline;
-    margin-bottom: $welcomeMargin;
+    margin-bottom: 20px;
   }
 }
 
@@ -68,12 +68,13 @@ $welcomeMargin: 60px;
 
 .logLink {
   display: block;
-  padding: 1.7rem 5rem;
+  padding: 1rem 2rem;
   margin-left: $welcomeMargin;
-  margin-top: calc($welcomeMargin/2);
+  margin-top: calc($welcomeMargin/3);
   text-decoration: none;
   border-radius: 5px;
   font-size: 2.0rem;
+  text-align: center;
   &:hover {
     background-color: darken(#0F9BFF, 10%);
   }

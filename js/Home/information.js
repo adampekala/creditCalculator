@@ -6,40 +6,31 @@ import {BsBank} from "react-icons/bs"
 import {Link} from 'react-router-dom'
 
 const Information = () => {
-    const iconsStyle = {width: "50px", height: "50px"};
+    const iconsStyle = {width: "40px", height: "40px"};
     return (
-        <div className="welcome">
-            <div className="welcomeLeftPhoto">
+        <div className="info">
+            <div className="infoLeftPhoto">
             </div>
-            <div className="welcomeHero contrastColor">
+            <div className="infoHero contrastColor">
                 <h1>Jak działa Odsetkomat?</h1>
-                <p>Dzięki Odsetkomatowi obliczysz:</p>
-                <ul className="welcomeHero-list">
-                    <li>
-                    <span>
-                        <BsBank style={iconsStyle}/>
-                    </span>
-                        <span>oprocentowanie kredytu</span>
-                    </li>
-                    <li>
-                    <span>
-                        <TbPigMoney style={iconsStyle}/>
-                    </span>
-                        <span>wysokość pożyczki</span>
-                    </li>
-                    <li>
-                    <span>
-                        <GiReceiveMoney style={iconsStyle}/>
-                    </span>
-                        <span>odsetki od lokaty</span>
-                    </li>
-                    <li>
-                    <span>
-                        <FaMoneyBillAlt style={iconsStyle}/>
-                    </span>
-                        <span>zysk z obligacji</span>
-                    </li>
-                </ul>
+                <p>
+                    <span><BsBank style={iconsStyle}/></span>
+                    <span>Zarejestruj się. Po utworzeniu konta zaloguj się.</span>
+                </p>
+                <p>
+                    <span><TbPigMoney style={iconsStyle}/></span>
+                    <span>Wybierz rodzaj kalkulatora, który odpowiada Twoim potrzebom.</span>
+
+                </p>
+                <p>
+                    <span><GiReceiveMoney style={iconsStyle}/></span>
+                    <span>Wypełnij pola zgodnie z opisem. Wybierz odpowiednie opcje.</span>
+                </p>
+                <p>
+                    <span><FaMoneyBillAlt style={iconsStyle}/></span>
+                    <span>Wciśnij guzik. Teraz możesz zapoznać się z wynikiem</span>
+
+                </p>
 
                 <Link to='/login' className={"thirdColor logLink"}>Skorzystaj z kalkulatora</Link>
 

@@ -12,20 +12,20 @@ const Welcome = () => {
         <div className="welcomeLeftPhoto">
         </div>
         <div className="welcomeHero contrastColor">
-            <h1>Witaj</h1>
+            <h1>Witaj!</h1>
             <p>Dzięki Odsetkomatowi obliczysz:</p>
             <ul className="welcomeHero-list">
-                <li>
-                    <span>
-                        <BsBank style={iconsStyle}/>
-                    </span>
-                    <span>oprocentowanie kredytu</span>
-                </li>
                 <li>
                     <span>
                         <TbPigMoney style={iconsStyle}/>
                     </span>
                     <span>wysokość pożyczki</span>
+                </li>
+                <li>
+                    <span>
+                        <BsBank style={iconsStyle}/>
+                    </span>
+                    <span>oprocentowanie kredytu</span>
                 </li>
                 <li>
                     <span>

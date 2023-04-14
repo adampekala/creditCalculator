@@ -1,0 +1,88 @@
+@use "sass:color";
+
+$welcomeMargin: 60px;
+
+.info {
+  max-width: 1300px;
+  display: flex;
+  border-radius: 50px;
+  box-shadow: 1px 0px 7px 0px #00000036;
+  margin: 2.0rem;
+  height: 530px;
+  @media screen and (min-width: 1300px) {
+    margin: 2.5rem Auto;
+  }
+
+}
+
+.infoLeftPhoto {
+  width: 350px;
+  background-image: url("../pictures/pexels-fauxels-3184610.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border-radius: 50px 0 0 50px;
+  &::after {
+    content: "";
+    background-color: rgba(158, 16, 127, 0.72);
+    //width: 200px;
+    border-radius: 50px 0 0 50px;
+    height: 100%;
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+
+  }
+}
+
+.infoHero {
+  h1 {
+    padding-left: $welcomeMargin;
+  }
+  p {
+    width: 450px;
+    display: flex;
+    gap: 30px;
+    padding-bottom: 20px;
+    padding-right: 30px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: $welcomeMargin;
+    font-size: 1.3rem;
+    text-decoration: none;
+    margin-bottom: 0;
+
+  }
+}
+
+.welcomeHero-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding-left: $welcomeMargin;
+  gap: 10px;
+  li {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 1.5rem;
+  }
+}
+
+.logLink {
+  display: block;
+  padding: 1rem 2rem;
+  margin-left: $welcomeMargin;
+  margin-top: calc($welcomeMargin/3);
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 2.0rem;
+  text-align: center;
+  &:hover {
+    background-color: darken(#0F9BFF, 10%);
+  }
+}
