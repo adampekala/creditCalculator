@@ -1,0 +1,122 @@
+
+.calculatorLeftNavigation {
+
+  width: min(300px, 20vw);
+  height: 75vh;
+  border-radius: 50px 0 0 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+
+.calculatorLeftNavigationList {
+  border-right: 1px solid white;
+  padding: 50px 30px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: center;
+  gap: 50px;
+  align-items: flex-end;
+  list-style-type: none;
+  font-size: 20px;
+  position: absolute;
+
+  li {
+    position: relative;
+
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  li::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #9E107F;
+    border: 3px solid white;
+    position: absolute;
+    top: 5px;
+    right: -31px;
+    transform: translate(50%, -30%);
+  }
+
+}
+
+.calculatorLeftNavigationList:before {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  top: -50px;
+  right: -31px;
+  transform: translate(50%);
+}
+.calculatorLeftNavigationList:after {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  bottom: -50px;
+  right: -31px;
+  transform: translate(50%);
+}
+
+.calculatorLeftNavigationList-active {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  span:first-child {
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 40px solid #0F9BFF;
+    border-right: 30px solid transparent;
+    border-left: 30px solid transparent;
+    border-bottom: 40px solid transparent;
+    top: -30px;
+    right: 120px;
+    //transform: translate(0, -50%)  translate(-17%, -80px);
+    transform:  rotate(-90deg);
+    z-index: 3;
+
+  }
+  span:last-child {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    right: -41px;
+    bottom: 38%;
+    transform: translate(-50%);
+    z-index: 5;
+  }
+}
+
+.calculatorLeftNavigationList-inactive {
+  color: white;
+  text-decoration: none;
+  span:first-child {
+    display: none;
+  }
+  span:last-child {
+    display: none;
+  }
+}

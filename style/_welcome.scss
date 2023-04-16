@@ -3,13 +3,13 @@
 $welcomeMargin: 60px;
 
 .welcome {
-  max-width: 1300px;
+  max-width: 1200px;
   display: flex;
   border-radius: 50px;
   box-shadow: 1px 0px 7px 0px #00000036;
   margin: 2.0rem;
   height: 530px;
-  @media screen and (min-width: 1300px) {
+  @media screen and (min-width: 1200px) {
     margin: 2.5rem Auto;
   }
 

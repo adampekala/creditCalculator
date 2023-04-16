@@ -1,17 +1,20 @@
+$internalHeaderMargin: 50px;
 .topBar {
+  box-sizing: border-box;
   max-width: 1200px;
-  padding: 20px 50px;
+  padding: 20px 0;
   border-radius: 50px;
   margin: 2.0rem;
   display: flex;
   justify-content: space-between;
   font-size: 30px;
-  @media screen and (min-width: 1300px) {
+  @media screen and (min-width: 1200px) {
     margin: 2.5rem Auto;
   }
 }
 
 .logoContainer {
+  margin-left: $internalHeaderMargin;
   display: flex;
   align-items: center;
   gap: 30px;
@@ -45,6 +48,7 @@
 }
 
 .iconsContainer {
+  margin-right: $internalHeaderMargin;
   display: flex;
   align-items: center;
   gap: 20px;
