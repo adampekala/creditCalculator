@@ -18,7 +18,13 @@ const container = document.getElementById("app");
 const root = createRoot(container);
 const Application = () => {
     const [logged, setLogged] = useState(false);
-    const [usersCalculations, setUsersCalculations] = useState(false)
+    const [usersCalculations, setUsersCalculations] = useState(false);
+    const {credits, bonds, deposits, loans} = usersCalculations;
+
+    const creditsFilter = (id) => {
+        let newCreditsArr = credits.filter((el, i) => {return i !== id})
+        setUsersCalculations({...usersCalculations, credits: newCreditsArr})
+    }
 
     return (
         <HashRouter>
@@ -29,10 +35,13 @@ const Application = () => {
                     <Route path='login' element={<Login userLogIn={logged} setUserLogIn={setLogged} data={usersCalculations} changingData={setUsersCalculations}/>}/>
                     <Route path='registration' element={<Registration userLogIn={logged} setUserLogIn={setLogged}/>}/>
                     <Route path='calculator'>
-                        <Route path='' element={<CreditCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations}/>}/>
-                        <Route path='loan' element={<LoanCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations}/>}/>
-                        <Route path='deposit' element={<DepositCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations}/>}/>
-                        <Route path='bond' element={<BondCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations}/>}/>
+                        <Route path='' element={<CreditCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations} filter={creditsFilter}/>}/>
+
+                        <Route path='loan' element={<LoanCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations} filter={creditsFilter}/>}/>
+
+                        <Route path='deposit' element={<DepositCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations} filter={creditsFilter}/>}/>
+
+                        <Route path='bond' element={<BondCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations} filter={creditsFilter}/>}/>
                     </Route>
                     <Route path='userData' element={<UserData  userLogIn={logged} setUserLogIn={setLogged} userData={usersCalculations}/>}/>
                 </Route>

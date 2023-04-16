@@ -5,12 +5,23 @@ import {TbPigMoney} from "react-icons/tb";
 import {BsBank} from "react-icons/bs";
 import {Link} from 'react-router-dom';
 
-const UserData = (props) => {
-    const [isLogged, setIsLogged] = useState(props.userLogIn);
-    const [data, setData] = useState(props.userData);
+
+const UserData = ({userLogIn, userData, setUserLogIn}) => {
+    let [isLogged, setIsLogged] = useState(userLogIn);
+    let {id, name, credits, loans, deposits, bonds} = userData;
+    const API = "http://localhost:3005"
+
 
     const handleLogOut = () => {
-        props.setUserLogIn(false);
+        console.log(userData);
+
+        fetch(`${API}/data/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(userData),
+            headers: {"Content-type": "application/json"}
+        }).then(response => response.json()).then(data => {console.log(data); setUserLogIn(false)}).catch(reject => console.log(reject))
+
+
     }
 
 
@@ -22,31 +33,31 @@ const UserData = (props) => {
             <div className="welcomeLeftPhoto">
             </div>
             <div className="welcomeHero contrastColor">
-                <h1>Witaj {data.name}! Twoje obliczenia.</h1>
+                <h1>Witaj {name}! Twoje obliczenia.</h1>
                 <ul className="welcomeHero-list">
                     <li>
                     <span>
                         <TbPigMoney style={iconsStyle}/>
                     </span>
-                        <span>{data.loans.length} pożyczka(i/ek)</span>
+                        <span>{loans.length} pożyczka(i/ek)</span>
                     </li>
                     <li>
                     <span>
                         <BsBank style={iconsStyle}/>
                     </span>
-                        <span>{data.credits.length} kredyt(ów/y)</span>
+                        <span>{credits.length} kredyt(ów/y)</span>
                     </li>
                     <li>
                     <span>
                         <GiReceiveMoney style={iconsStyle}/>
                     </span>
-                        <span>{data.deposits.length} lokata(y)</span>
+                        <span>{deposits.length} lokata(y)</span>
                     </li>
                     <li>
                     <span>
                         <FaMoneyBillAlt style={iconsStyle}/>
                     </span>
-                        <span>{data.bonds.length} obligacja(e/i)</span>
+                        <span>{bonds.length} obligacja(e/i)</span>
                     </li>
                 </ul>
 

@@ -2,52 +2,52 @@
   "users": [
     {
       "id": "adam",
+      "idNum": 1,
       "password": "111"
     },
     {
       "id": "marcin",
+      "idNum": 2,
       "password": "222"
     }
   ],
   "data": [
     {
-      "id": "adam",
+      "id": 1,
       "name": "Adam",
-
       "credits": [
-            {
-            "date": "1960.12.01",
-            "amount": "4435345.00",
-            "rate": "0.12"
-          },
-            {
-            "date": "1960.12.01",
-            "amount": "4242342.00",
-            "rate": "0.34"
-          }
-          ],
-
-      "loans": [
-          {
-            "date": "1988.12.03",
-            "amount": "65487.00",
-            "rate": "0.88"
-          }
-          ],
-
-      "deposits": [
-
+        {
+          "date": "2023-04-16T20:20:23.617Z",
+          "amount": "1111",
+          "rate": "0.33",
+          "creditPeriod": "11"
+        },
+        {
+          "date": "2023-04-16T20:20:42.969Z",
+          "amount": "333",
+          "rate": "0.33",
+          "creditPeriod": "11"
+        },
+        {
+          "date": "2023-04-16T20:22:28.649Z",
+          "amount": "35353",
+          "rate": "0.12",
+          "creditPeriod": "3"
+        }
       ],
-
-      "bonds": [
-
-      ]
-
+      "loans": [
+        {
+          "date": "1988.12.03",
+          "amount": "65487.00",
+          "rate": "0.88"
+        }
+      ],
+      "deposits": [],
+      "bonds": []
     },
     {
-      "id": "marcin",
+      "id": 2,
       "name": "Marcin",
-
       "credits": [
         {
           "date": "2023.01.23",
@@ -58,9 +58,14 @@
           "date": "2023.01.23",
           "amount": "2000000.00",
           "rate": "0.01"
+        },
+        {
+          "date": "2023-04-16T18:08:46.791Z",
+          "amount": "Wpisz kwotę kredytu",
+          "rate": "Wpisz wysokość odsetek",
+          "creditPeriod": "Wpisz okres kredytu w latach"
         }
       ],
-
       "loans": [
         {
           "date": "2023.01.23",
@@ -68,15 +73,40 @@
           "rate": "0.02"
         }
       ],
-
-      "deposits": [
-
-      ],
-
-      "bonds": [
-
-      ]
-
+      "deposits": [],
+      "bonds": []
+    },
+    [],
+    {
+      "date": "2023-04-16T15:09:33.223Z",
+      "amount": "Wpisz kwotę kredytu",
+      "rate": "Wpisz wysokość odsetek",
+      "creditPeriod": "Wpisz okres kredytu w latach",
+      "id": "Br11gJF"
+    },
+    {
+      "date": "2023-04-16T15:13:28.863Z",
+      "amount": "Wpisz kwotę kredytu",
+      "rate": "Wpisz wysokość odsetek",
+      "creditPeriod": "Wpisz okres kredytu w latach",
+      "id": "fMRJPZJ"
+    },
+    {
+      "date": "2023-04-16T15:16:50.340Z",
+      "amount": "22",
+      "rate": "22",
+      "creditPeriod": "22",
+      "id": "NtHmydT"
+    },
+    {
+      "klucz": "11",
+      "klucz2": "www",
+      "id": "cbzDfll"
+    },
+    {
+      "id": 3,
+      "klucz2": "www",
+      "klucz1": "ddd"
     }
   ]
 }

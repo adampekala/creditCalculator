@@ -48,7 +48,7 @@ const Login = (props) => {
                 (data) => {
                     if (data.password === password ) {
                     props.setUserLogIn(true);
-                        fetch(`${API}/data/${login}`).then(resp => resp.json()).then(data => props.changingData(data)).catch(reject => console.log(reject))
+                        fetch(`${API}/data/${data.idNum}`).then(resp => resp.json()).then(data => props.changingData(data)).catch(reject => console.log(reject))
                 }
                     else {props.setUserLogIn(false)}})
             .catch(reject => console.log(reject));
