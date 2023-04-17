@@ -704,6 +704,58 @@ ul {
   border-radius: 50px;
 }
 
+.buttonPrev {
+  width: 1rem;
+  height: 1rem;
+  background-color: transparent;
+  border-width: 3px 0 0 3px;
+  border-style: solid;
+  border-color: #0F9BFF transparent transparent #0F9BFF;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+}
+.buttonPrev:hover {
+  border-color: #0080db transparent transparent #0080db;
+}
+
+.buttonNext {
+  width: 1rem;
+  height: 1rem;
+  background-color: transparent;
+  border-width: 3px 3px 0 0;
+  border-style: solid;
+  border-color: #0F9BFF #0F9BFF transparent transparent;
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+.buttonNext:hover {
+  border-color: #0080db #0080db transparent transparent;
+}
+
+.creditCalculatorCalculationsDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.creditCalculatorCalculationsDisplay-list {
+  height: 420px;
+}
+
+.creditCalculator-btnBackToCalculations {
+  background-color: #0F9BFF;
+  color: white;
+  padding: 0.3rem 4rem;
+  border-style: none;
+  border-radius: 3px;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+.creditCalculator-btnBackToCalculations:hover {
+  background-color: #0080db;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;

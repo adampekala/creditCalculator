@@ -29,7 +29,7 @@ const Application = () => {
     return (
         <HashRouter>
             <Routes>
-                <Route path="/" element={<Layout userLogIn={logged} setUserLogIn={setLogged}/>}>
+                <Route path="/" element={<Layout userLogIn={logged} setUserLogIn={setLogged} userData={usersCalculations}/>}>
                     <Route path='' element={<Welcome userLogIn={logged}/>}/>
                     <Route path='info' element={<Information userLogIn={logged}/>}/>
                     <Route path='login' element={<Login userLogIn={logged} setUserLogIn={setLogged} data={usersCalculations} changingData={setUsersCalculations}/>}/>

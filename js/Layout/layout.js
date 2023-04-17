@@ -7,7 +7,7 @@ const Layout = (props) => {
 
     return (
         <>
-            <Header userLogIn={props.userLogIn}/>
+            <Header userLogIn={props.userLogIn} logOut={props.setUserLogIn} userData={props.userData}/>
             <Outlet/>
         </>
     )

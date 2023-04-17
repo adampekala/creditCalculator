@@ -55,21 +55,54 @@ const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
         e.target.value === "" && setPeriod("Wpisz okres kredytu w latach");
     }
 
+    const [paymentArr, setPaymentArr] = useState(undefined);
+    const [paymentArrPages, setPaymentArrPages] = useState(undefined);
+    const [whichPage, setWhichPage] = useState(1);
 
     const handleClick = (e) => {
         e.preventDefault();
+
         let newCredit = {
             date: new Date(),
             amount: amount,
             rate: rate,
             creditPeriod: period
         };
+
+        let arr = [];
+        for (let i = 0; i < newCredit.creditPeriod*12; i++ ) {
+            arr.push({amount: +amount, interests: +amount * +rate, payment: +amount + (+amount * +rate) })
+        }
+        setPaymentArr(arr);
+
+        let pages = Math.ceil((newCredit.creditPeriod * 12)/10);
+        setPaymentArrPages(pages);
+
         console.log(newCredit);
         let creditsArr = [...credits, newCredit];
 
         setUserData((prev) => ({...prev, credits: creditsArr}));
 
         setDisplayShowCalc(true);
+    }
+
+    const handleNextPage = () => {
+        setWhichPage((prev)=> prev < paymentArrPages ? prev + 1 : paymentArrPages)
+    }
+
+    const handlePreviousPage = () => {
+        setWhichPage((prev)=> prev > 1 ? prev - 1 : 1)
+    }
+
+    const handleBackToCalculations = () => {
+        setDisplayShowCalc(false);
+        setPaymentArr(undefined);
+        setPaymentArrPages(undefined);
+        setAmount("Wpisz kwotę kredytu");
+        setRate("Wpisz wysokość odsetek");
+        setPeriod("Wpisz okres kredytu w latach");
+        setCreditType("stałaRata");
+        setWhichPage(1);
     }
 
     const handleSubmit = (e) => {
@@ -81,10 +114,29 @@ const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
             <div className="main">
                 <Navigation/>
                 {displayShowCalc ?
-                    <div className="mainCalculator">
-                        <h1>Twoje obliczenia</h1>
-                        <p>Tabela</p>
-                        <button type={"button"} className={"btnOblicz"} onClick={handleClick}>Powrót do obliczeń</button>
+                    <div className="mainCalculator creditCalculatorCalculationsDisplay">
+                        <h1 style={{margin: "1rem 0 0 0"}}>Twoje obliczenia</h1>
+                        <div className={"creditCalculatorCalculationsDisplay-list"}>
+                            <p style={{display: "flex", justifyContent: "space-between", gap: "20px", color: "#9E107F", borderBottom: "3px double #9E107F"}}><span>RATA</span><span>KAPITAŁ</span><span>ODSETKI</span><span>WPŁATA</span></p>
+                            {paymentArr
+                                .filter((el, i) => i > (whichPage - 1) * 10 && i <= whichPage * 10)
+                                .map((el, i) => <p key={i} style={{borderBottom: "1px solid #9E107F", display: "flex", justifyContent: "space-between", color: "#9E107F"}}>
+                                    <span>nr {(i + 1) + ((whichPage - 1)*10)}</span>
+                                    <span>{el.amount}</span>
+                                    <span>{el.interests}</span>
+                                    <span>{el.payment}</span>
+                                </p>)}
+
+                        </div>
+
+                        <div style={{display: "flex", alignItems: "center"}}>
+                            <button type={"button"} className={"buttonPrev"} onClick={handlePreviousPage}></button>
+                            <span style={{color: "#9E107F", fontSize: "0.8rem"}}>{whichPage} strona z {paymentArrPages}</span>
+                            <button type={"button"} className={"buttonNext"} onClick={handleNextPage}></button>
+
+                        </div>
+
+                        <button type={"button"} className={"creditCalculator-btnBackToCalculations"} onClick={handleBackToCalculations}>Powrót do obliczeń</button>
                     </div>
                     :
                     <div className="mainCalculator">
