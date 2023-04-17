@@ -11,6 +11,8 @@ const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
     const [period, setPeriod] = useState("Wpisz okres kredytu w latach");
     const [creditType, setCreditType] = useState("stałaRata");
     const [isSent, setIsSent] = useState(false);
+
+    //TODO
     const [userDataBase, setUserDataBase] = useState(userData);
 
     const {id, name, credits, loans, deposits, bonds} = userDataBase;
@@ -82,6 +84,7 @@ const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
         let creditsArr = [...credits, newCredit];
 
         setUserData((prev) => ({...prev, credits: creditsArr}));
+        setUserDataBase((prev) => ({...prev, credits: creditsArr}))
 
         setDisplayShowCalc(true);
     }

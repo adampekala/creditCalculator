@@ -4,13 +4,14 @@
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 2.0rem;
+  gap: 2.5rem;
   @media screen and (min-width: 1200px) {
     margin: 2.0rem Auto;
   }
 }
 
 .main {
-  flex-grow: 0;
+  flex-grow: 1;
   display: flex;
   justify-content: left;
   box-shadow: 1px 0px 7px 0px #00000036;

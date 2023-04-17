@@ -9,6 +9,16 @@
       "id": "marcin",
       "idNum": 2,
       "password": "222"
+    },
+    {
+      "id": "erni",
+      "idNum": 3,
+      "password": "333"
+    },
+    {
+      "id": "anna",
+      "idNum": 4,
+      "password": "111"
     }
   ],
   "data": [
@@ -24,24 +34,6 @@
         },
         {
           "date": "2023-04-17T17:36:30.583Z",
-          "amount": "1111",
-          "rate": "11",
-          "creditPeriod": "3"
-        },
-        {
-          "date": "2023-04-17T17:37:22.461Z",
-          "amount": "111",
-          "rate": "111",
-          "creditPeriod": "3"
-        },
-        {
-          "date": "2023-04-17T17:37:37.323Z",
-          "amount": "111",
-          "rate": "111",
-          "creditPeriod": "11"
-        },
-        {
-          "date": "2023-04-17T17:38:30.468Z",
           "amount": "1111",
           "rate": "11",
           "creditPeriod": "3"
@@ -88,37 +80,21 @@
       "deposits": [],
       "bonds": []
     },
-    [],
-    {
-      "date": "2023-04-16T15:09:33.223Z",
-      "amount": "Wpisz kwotę kredytu",
-      "rate": "Wpisz wysokość odsetek",
-      "creditPeriod": "Wpisz okres kredytu w latach",
-      "id": "Br11gJF"
-    },
-    {
-      "date": "2023-04-16T15:13:28.863Z",
-      "amount": "Wpisz kwotę kredytu",
-      "rate": "Wpisz wysokość odsetek",
-      "creditPeriod": "Wpisz okres kredytu w latach",
-      "id": "fMRJPZJ"
-    },
-    {
-      "date": "2023-04-16T15:16:50.340Z",
-      "amount": "22",
-      "rate": "22",
-      "creditPeriod": "22",
-      "id": "NtHmydT"
-    },
-    {
-      "klucz": "11",
-      "klucz2": "www",
-      "id": "cbzDfll"
-    },
     {
       "id": 3,
-      "klucz2": "www",
-      "klucz1": "ddd"
+      "name": "erni",
+      "credits": [],
+      "loans": [],
+      "deposits": [],
+      "bonds": []
+    },
+    {
+      "id": 4,
+      "name": "anna",
+      "credits": [],
+      "loans": [],
+      "deposits": [],
+      "bonds": []
     }
   ]
 }

@@ -19,6 +19,7 @@ const root = createRoot(container);
 const Application = () => {
     const [logged, setLogged] = useState(false);
     const [usersCalculations, setUsersCalculations] = useState(false);
+    const [usersNumber, setUsersNumber] = useState(undefined);
     const {credits, bonds, deposits, loans} = usersCalculations;
 
     const creditsFilter = (id) => {
@@ -32,8 +33,8 @@ const Application = () => {
                 <Route path="/" element={<Layout userLogIn={logged} setUserLogIn={setLogged} userData={usersCalculations}/>}>
                     <Route path='' element={<Welcome userLogIn={logged}/>}/>
                     <Route path='info' element={<Information userLogIn={logged}/>}/>
-                    <Route path='login' element={<Login userLogIn={logged} setUserLogIn={setLogged} data={usersCalculations} changingData={setUsersCalculations}/>}/>
-                    <Route path='registration' element={<Registration userLogIn={logged} setUserLogIn={setLogged}/>}/>
+                    <Route path='login' element={<Login userLogIn={logged} setUserLogIn={setLogged} data={usersCalculations} changingData={setUsersCalculations} usersNumberFn={setUsersNumber} />}/>
+                    <Route path='registration' element={<Registration userLogIn={logged} setUserLogIn={setLogged} usersNumberLength={usersNumber}/>}/>
                     <Route path='calculator'>
                         <Route path='' element={<CreditCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations} filter={creditsFilter}/>}/>
 

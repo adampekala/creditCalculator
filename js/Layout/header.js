@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import {MdLockOutline, MdQuestionMark} from "react-icons/md";
+import {MdLockOutline, MdQuestionMark, MdPowerSettingsNew, MdCalculate, MdLock, MdPersonPin} from "react-icons/md";
 import {Link} from "react-router-dom";
-import {BsPersonCircle, BsFillCalculatorFill, BsPower} from "react-icons/bs";
+import {BsPersonCircle, BsFillCalculatorFill} from "react-icons/bs";
 
 
 const Header = ({userLogIn, logOut, userData}) => {
@@ -34,7 +34,7 @@ const Header = ({userLogIn, logOut, userData}) => {
 
                 {userLogIn ?
                     <Link to='/login' className={"infoIconLink"}>
-                        <BsFillCalculatorFill style={{width: "50px", height: "50px", color: "rgb(15, 170, 240)"}}/>
+                        <MdCalculate style={{width: "50px", height: "50px", color: "rgb(15, 170, 240)"}}/>
                     </Link>
                     :
                     null
@@ -44,13 +44,13 @@ const Header = ({userLogIn, logOut, userData}) => {
                     <MdQuestionMark style={{width: "50px", height: "50px", color: "white"}}/>
                 </Link>
                 <Link to={userLogIn ? '/userData' : '/login'} className={"logIconLink"}>
-                    {userLogIn ? <BsPersonCircle style={iconsStyle}/> : <MdLockOutline style={iconsStyle}/>
+                    {userLogIn ? <MdPersonPin style={iconsStyle}/> : <MdLock style={iconsStyle}/>
                     }
                 </Link>
 
                 {userLogIn ?
                     <Link to='/' className={"infoIconLink"} onClick={handleLogOut}>
-                        <BsPower style={{width: "50px", height: "50px", color: "rgb(15, 170, 240)"}}/>
+                        <MdPowerSettingsNew style={{width: "50px", height: "50px", color: "rgb(15, 170, 240)"}}/>
                     </Link>
                     :
                     null

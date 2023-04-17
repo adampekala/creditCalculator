@@ -10,6 +10,7 @@ const Login = (props) => {
     const [login, setLogin] = useState("Wpisz Login...");
     const [password, setPassword] = useState("Wpisz hasło...");
 
+
     console.log(props.data);
 
     const handleLoginFocus = (e) => {
@@ -55,6 +56,14 @@ const Login = (props) => {
 
     }
 
+    const handleRegistrationLinkClick = () => {
+        fetch(`${API}/users`)
+            .then(resp => resp.json())
+            .then((data) => { props.usersNumberFn(data.length)})
+            .catch(reject => console.log(reject));
+
+    }
+
     let loginAppearence;
     props.userLogIn ? loginAppearence = <div className="loginHero contrastColor">
         <h1>Wybierz kalkulator</h1>
@@ -76,7 +85,7 @@ const Login = (props) => {
 
             <Link to="/calculator"><button className={"loginBtnLog"} onClick={handleClick}>Zaloguj</button></Link>
         </form>
-        <p><Link className={"loginRegistrationLink"} to="/registration">Nie masz konta? Zarejestruj się!</Link></p>
+        <p><Link className={"loginRegistrationLink"} to="/registration" onClick={handleRegistrationLinkClick} >Nie masz konta? Zarejestruj się!</Link></p>
 
     </div>;
     return (
