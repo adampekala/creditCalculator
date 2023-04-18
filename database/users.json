@@ -27,16 +27,22 @@
       "name": "Adam",
       "credits": [
         {
-          "date": "2023-04-17T17:34:13.591Z",
-          "amount": "555",
-          "rate": "7777",
+          "date": "2023-04-18T06:44:02.935Z",
+          "amount": "1111",
+          "rate": "0.33",
+          "creditPeriod": "3"
+        },
+        {
+          "date": "2023-04-18T06:44:28.733Z",
+          "amount": "1122",
+          "rate": "11",
           "creditPeriod": "11"
         },
         {
-          "date": "2023-04-17T17:36:30.583Z",
-          "amount": "1111",
-          "rate": "11",
-          "creditPeriod": "3"
+          "date": "2023-04-18T06:44:39.879Z",
+          "amount": "111",
+          "rate": "0.33",
+          "creditPeriod": "1"
         }
       ],
       "loans": [

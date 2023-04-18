@@ -12,7 +12,22 @@ class SiderHistory extends Component {
     };
 
     btnDeleteFn = (id) => {
-        this.props.btnMinusFn(id);
+        //TODO
+        let actualDataBase;
+        const mypromis = new Promise((response, reject) => {
+            this.props.btnMinusFn(id);
+            response("ok");
+            reject("error")
+        })
+
+        mypromis.then((res) => {
+            actualDataBase = {...this.props.userData};
+            this.props.setCreditInfo(actualDataBase);
+            console.log(res);
+        }).catch((rej) => console.log(rej))
+
+
+
     }
 
     dateConversion = (d) => {

@@ -168,7 +168,7 @@ const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
                 }
 
             </div>
-            <SiderHistory type={"Kredyt/y"} userData={userData} setUserData={setUserData} btnMinusFn={filter}/>
+            <SiderHistory type={"Kredyt/y"} userData={userData} setUserData={setUserData} setCreditInfo={setUserDataBase} btnMinusFn={filter}/>
         </div>
     )
 }
