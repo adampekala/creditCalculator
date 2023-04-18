@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Navigation from "../CalculatorCommonComponents/navigation";
 import SiderHistory from "../CalculatorCommonComponents/sider";
+import { format, compareAsc } from 'date-fns'
 
 const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
     const inputStyling = {display: "block", position: "relative", width: "400px"};
@@ -66,6 +67,7 @@ const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
 
         let newCredit = {
             date: new Date(),
+            dateString: format(new Date(), 'dd-MMM-yyyy'),
             amount: amount,
             rate: rate,
             creditPeriod: period
@@ -73,7 +75,7 @@ const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
 
         let arr = [];
         for (let i = 0; i < newCredit.creditPeriod*12; i++ ) {
-            arr.push({amount: +amount, interests: +amount * +rate, payment: +amount + (+amount * +rate) })
+            arr.push({amount: +amount, interests: +amount * ((+rate)/100), payment: +amount + (+amount * ((+rate)/100)) })
         }
         setPaymentArr(arr);
 
@@ -168,7 +170,7 @@ const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
                 }
 
             </div>
-            <SiderHistory type={"Kredyt/y"} userData={userData} setUserData={setUserData} setCreditInfo={setUserDataBase} btnMinusFn={filter}/>
+            <SiderHistory type={"Kredyt/y"} userData={userData} setUserData={setUserData} setCreditInfo={setUserDataBase} creatingArrayToShow={setPaymentArr} creatingPagination={setPaymentArrPages} setDisplayShowCalc={setDisplayShowCalc} btnMinusFn={filter}/>
         </div>
     )
 }

@@ -1,12 +1,18 @@
 import React, {useState, useEffect} from "react";
 import {MdPieChartOutline} from "react-icons/md";
 import {HiMinusSm} from "react-icons/hi";
+import { FiPieChart } from "react-icons/fi";
+import {format} from "date-fns";
 
-const SiderListItem = ({data, index, btnDelete}) => {
-    const {date, amount, rate, period} = data;
+const SiderListItem = ({data, index, btnDelete, setPaymentArrFn, creatingPaginationFn , btnChangeChart, setDisplayShowCalc}) => {
+    const {date, dateString , amount, rate, period} = data;
 
     const btnDeleteFn = (id) => (e) => {
         btnDelete(id);
+    }
+
+    const handleChangeChart = (data) => (e) => {
+        btnChangeChart(data)
     }
 
     const dateConversion = (d) => {
@@ -20,8 +26,46 @@ const SiderListItem = ({data, index, btnDelete}) => {
         return `${rateInput}%`;
     }
 
+    // const [paymentArr, setPaymentArr] = useState(undefined);
+    // const [paymentArrPages, setPaymentArrPages] = useState(undefined);
+    // const [whichPage, setWhichPage] = useState(1);
+
+
+
+    const handleShowHistoryClick = ()=> {
+
+        let historicalCredit = {
+            ...data
+        };
+
+        let arr = [];
+        for (let i = 0; i < historicalCredit.creditPeriod*12; i++ ) {
+            arr.push({amount: Math.round(+amount) , interests: Math.round(+amount * ((+rate)/100)) , payment: Math.round(+amount + (+amount * ((+rate)/100))) })
+        }
+        setPaymentArrFn(arr);
+
+        let pages = Math.ceil((historicalCredit.creditPeriod * 12)/10);
+        creatingPaginationFn(pages);
+
+        setDisplayShowCalc(true);
+    }
+
     return (
-        <li className={"siderHistory-calcList-item contrastColor"}><span></span><span>{dateConversion(date)} | {rateConversion(rate)}</span><span><MdPieChartOutline style={{width: "30px", height: "30px", transform: "rotate(30deg)"}}/><button className={"thirdColor"} onClick={btnDeleteFn(index)}><HiMinusSm style={{width: "30px", height: "30px"}}/></button></span></li>
+        <li className={"siderHistory-calcList-item contrastColor"}>
+            <span></span>
+            <span onClick={handleShowHistoryClick}>{dateString} | {rate}%</span>
+            <span>
+                <button
+                    style={{width: "30px", height: "30px", borderStyle: "none", backgroundColor: "white" }}
+                    onClick={handleChangeChart(data)}>
+                     <FiPieChart style={{width: "30px", height: "30px", borderStyle: "none", backgroundColor: "white" }}/>
+                </button>
+
+                <button className={"thirdColor"} onClick={btnDeleteFn(index)}>
+                    <HiMinusSm style={{width: "30px", height: "30px", color: "white"}}/>
+                </button>
+            </span>
+        </li>
 
     )
 }

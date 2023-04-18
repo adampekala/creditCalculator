@@ -104,8 +104,8 @@ ul {
 }
 .siderHistory-calcList-item span:first-child {
   display: block;
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   margin-right: 20px;
   background-color: #9E107F;
   border-radius: 50%;
@@ -118,30 +118,24 @@ ul {
   margin-right: 40px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
+}
+.siderHistory-calcList-item span:last-child svg:first-child {
+  color: #9E107F;
 }
 .siderHistory-calcList-item span:last-child svg:first-child:hover {
-  border-radius: 50%;
-  box-shadow: 0px 3px 8px 3px #9E107F inset;
+  color: #870e6c;
 }
 .siderHistory-calcList-item span:last-child svg:last-child:hover {
   border-radius: 50%;
   box-shadow: 0px 3px 8px 3px transparent inset;
 }
-.siderHistory-calcList-item img {
-  border-radius: 50%;
-  border: 1px solid transparent;
-}
-.siderHistory-calcList-item img:hover {
-  box-shadow: 1px 1px 2px blue;
-  border: 1px solid grey;
-}
-.siderHistory-calcList-item button {
+.siderHistory-calcList-item button:last-child {
   border-style: none;
   padding: 1px 3px 0;
   border-radius: 2px;
 }
-.siderHistory-calcList-item button:hover {
+.siderHistory-calcList-item button:last-child:hover {
   background-color: #0080db;
 }
 
@@ -180,15 +174,15 @@ ul {
 .siderHistory-calcChart-credit {
   position: absolute;
   top: -50px;
-  left: -100px;
+  left: -70px;
   color: #0F9BFF;
   font-size: large;
 }
 
 .siderHistory-calcChart-interests {
   position: absolute;
-  bottom: -50px;
-  right: -100px;
+  bottom: -20px;
+  right: -70px;
   color: #9E107F;
   font-size: large;
 }

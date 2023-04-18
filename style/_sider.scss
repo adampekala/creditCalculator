@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .sider {
   width: 350px;
   height: 75vh;
@@ -26,28 +28,29 @@ ul {
   padding: 2px 0;
   span:first-child {
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     margin-right: 20px;
     background-color: #9E107F;
     border-radius: 50%;
   }
+
   span:nth-child(2) {
     &:hover {
       text-decoration: underline;
     }
   }
+
   span:last-child {
-    //display: inline-block;
     margin-left: Auto;
     margin-right: 40px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     svg:first-child {
+      color: #9E107F;
       &:hover {
-        border-radius: 50%;
-        box-shadow: 0px 3px 8px 3px #9E107F inset;
+        color: darken(#9E107F, 5%);
       }
     }
     svg:last-child {
@@ -57,16 +60,16 @@ ul {
       }
     }
   }
-  img {
-    border-radius: 50%;
-    border: 1px solid transparent;
-
-    &:hover {
-      box-shadow: 1px 1px 2px blue;
-      border: 1px solid grey;
-    }
-  }
-  button {
+  //img {
+  //  border-radius: 50%;
+  //  border: 1px solid transparent;
+  //
+  //  &:hover {
+  //    box-shadow: 1px 1px 2px blue;
+  //    border: 1px solid grey;
+  //  }
+  //}
+  button:last-child {
     border-style: none;
     //font-size: 30px;
     padding: 1px 3px 0;
@@ -111,7 +114,7 @@ ul {
 .siderHistory-calcChart-credit {
   position: absolute;
   top: -50px;
-  left: -100px;
+  left: -70px;
   color: #0F9BFF;
   font-size: large;
 
@@ -119,8 +122,8 @@ ul {
 
 .siderHistory-calcChart-interests {
   position: absolute;
-  bottom: -50px;
-  right: -100px;
+  bottom: -20px;
+  right: -70px;
   color: #9E107F;
   font-size: large;
 }
