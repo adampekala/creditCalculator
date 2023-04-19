@@ -31,7 +31,7 @@ const DonatChart = ({amount, interests}) => {
     };
     return (
 
-            <div style={{width: "100px", height: "100px"}}>
+            <div>
                 <Doughnut  data={data} />
             </div>
 

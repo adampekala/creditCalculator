@@ -9,6 +9,7 @@ const Login = (props) => {
     const API = "http://localhost:3005"
     const [login, setLogin] = useState("Wpisz Login...");
     const [password, setPassword] = useState("Wpisz hasło...");
+    const [isError, setIsError] = useState(false);
 
 
     console.log(props.data);
@@ -19,6 +20,7 @@ const Login = (props) => {
 
     const handlePasswordFocus = (e) => {
         e.target.value === "Wpisz hasło..." && setPassword("");
+        setIsError(false);
     }
 
     const handleLoginBlur = (e) => {
@@ -41,7 +43,7 @@ const Login = (props) => {
     }
 
 
-    const handleClick = (e) => {
+    const handleLogInClick = (e) => {
         e.preventDefault();
         fetch(`${API}/users/${login}`)
             .then(resp => resp.json())
@@ -51,15 +53,17 @@ const Login = (props) => {
                     props.setUserLogIn(true);
                         fetch(`${API}/data/${data.idNum}`).then(resp => resp.json()).then(data => props.changingData(data)).catch(reject => console.log(reject))
                 }
-                    else {props.setUserLogIn(false)}})
-            .catch(reject => console.log(reject));
+                    else {props.setUserLogIn(false);
+                        setIsError(true)
+                    }})
+            .catch(reject => {console.log(reject); setIsError(true)});
 
     }
 
     const handleRegistrationLinkClick = () => {
         fetch(`${API}/users`)
             .then(resp => resp.json())
-            .then((data) => { props.usersNumberFn(data.length)})
+            .then((data) => { props.usersNumberFn(data.length); props.usersLoginArrChangeFn(data.map( (el) => el.id ))})
             .catch(reject => console.log(reject));
 
     }
@@ -82,8 +86,8 @@ const Login = (props) => {
 
             <label style={{display: "block", position: "relative", width: "400px"}}><input type={password === "Wpisz hasło..." ? "text" : "password"} name={"password"} value={password} onFocus={handlePasswordFocus} onBlur={handlePasswordBlur} onChange={handleChangePassword}/><span className={"inputAmount-caurrency"} style={{display: "block", position: "absolute"}}>Hasło</span></label>
 
-
-            <Link to="/calculator"><button className={"loginBtnLog"} onClick={handleClick}>Zaloguj</button></Link>
+            <p className={"errorInformation"}>{isError ? "* Nieprawidłowe login lub hasło" : ""}</p>
+            <Link to="/calculator"><button className={"loginBtnLog"} onClick={handleLogInClick}>Zaloguj</button></Link>
         </form>
         <p><Link className={"loginRegistrationLink"} to="/registration" onClick={handleRegistrationLinkClick} >Nie masz konta? Zarejestruj się!</Link></p>
 

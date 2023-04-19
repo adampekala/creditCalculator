@@ -146,13 +146,7 @@ ul {
 }
 
 .siderHistory-calcChart-chart {
-  width: 150px;
-  height: 150px;
-  margin: 40px auto 0 auto;
-  background-color: white;
-  border: 35px solid #9E107F;
-  box-shadow: -5px 10px 10px 0px lightgrey;
-  border-radius: 50%;
+  margin: 1.2rem auto 0 auto;
   position: relative;
 }
 
@@ -388,6 +382,11 @@ ul {
   font-size: 1.7rem;
   margin-top: 5px;
 }
+.loginHero .errorInformation {
+  font-size: 1.2rem;
+  margin: 0;
+  height: 1.3rem;
+}
 
 .loginBtnLog {
   background-color: #0F9BFF;
@@ -491,14 +490,27 @@ ul {
   z-index: 2;
 }
 
+.registrationHero {
+  flex-grow: 1;
+}
 .registrationHero h1 {
   padding-left: 60px;
+}
+.registrationHero .registrationConfirmationHeader {
+  padding-left: unset;
+  text-align: center;
+  margin-top: 5rem;
 }
 .registrationHero p {
   padding-left: 60px;
   margin-right: 60px;
   font-size: 1.7rem;
   margin-top: 5px;
+}
+.registrationHero .errorInformation {
+  font-size: 1.2rem;
+  margin: 0;
+  height: 1.3rem;
 }
 
 .registrationBtnLog {
@@ -513,7 +525,7 @@ ul {
   margin-top: 50px;
 }
 
-.logLink {
+.registrationLink {
   display: block;
   padding: 1rem 2rem;
   margin-left: 60px;
@@ -523,7 +535,21 @@ ul {
   font-size: 2rem;
   text-align: center;
 }
-.logLink:hover {
+.registrationLink:hover {
+  background-color: #0080db;
+}
+
+.registrationLogLink {
+  display: block;
+  padding: 1rem 0;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 22rem;
+  margin: 0 auto;
+}
+.registrationLogLink:hover {
   background-color: #0080db;
 }
 

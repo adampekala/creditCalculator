@@ -5,12 +5,22 @@ import {TbPigMoney} from "react-icons/tb";
 import {BsBank} from "react-icons/bs";
 import {Link} from 'react-router-dom';
 
-const Welcome = (props) => {
-    const [isLogged, setIsLogged] = useState(props.userLogIn);
-
-
+const Welcome = ({userLogIn, setUsersLoginArrFn}) => {
+    const [isLogged, setIsLogged] = useState(userLogIn);
 
     const iconsStyle = {width: "50px", height: "50px"};
+    const API = "http://localhost:3005";
+
+    const handleImportUsersArr = () => {
+        fetch(`${API}/users`)
+            .then(resp => resp.json())
+            .then(
+                (data) => {
+                    setUsersLoginArrFn(data.map(el => el.id));
+                    })
+            .catch(reject => console.log(reject));
+
+    }
 
     return (
     <div className="welcome">
@@ -46,7 +56,7 @@ const Welcome = (props) => {
                 </li>
             </ul>
 
-            <Link to={'/login'} className={"thirdColor logLink"}>Skorzystaj z kalkulatora</Link>
+            <Link onClick={handleImportUsersArr} to={'/login'} className={"thirdColor logLink"}>Skorzystaj z kalkulatora</Link>
 
         </div>
     </div>)

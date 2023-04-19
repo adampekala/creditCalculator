@@ -40,14 +40,25 @@ $loginMargin: 60px;
 }
 
 .registrationHero {
+  flex-grow: 1;
   h1 {
     padding-left: $loginMargin;
+  }
+  .registrationConfirmationHeader {
+    padding-left: unset;
+    text-align: center;
+    margin-top: 5rem;
   }
   p {
     padding-left: $loginMargin;
     margin-right: $loginMargin;
     font-size: 1.7rem;
     margin-top: 5px;
+  }
+  .errorInformation {
+    font-size: 1.2rem;
+    margin: 0;
+    height: 1.3rem;
   }
 }
 
@@ -64,7 +75,7 @@ $loginMargin: 60px;
 }
 
 
-.logLink {
+.registrationLink {
   display: block;
   padding: 1rem 2rem;
   margin-left: $loginMargin;
@@ -73,6 +84,21 @@ $loginMargin: 60px;
   border-radius: 5px;
   font-size: 2.0rem;
   text-align: center;
+  &:hover {
+    background-color: darken(#0F9BFF, 10%);
+  }
+
+}
+
+.registrationLogLink {
+  display: block;
+  padding: 1rem 0;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 22rem;
+  margin: 0 auto;
   &:hover {
     background-color: darken(#0F9BFF, 10%);
   }
