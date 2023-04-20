@@ -93,8 +93,10 @@
   padding-bottom: 5px;
 }
 
-ul {
+.siderHistory-calcList {
   list-style-type: disc;
+  height: 7rem;
+  overflow-y: scroll;
 }
 
 .siderHistory-calcList-item {
@@ -147,44 +149,34 @@ ul {
 
 .siderHistory-calcChart-chart {
   margin: 1.2rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
-}
-
-.siderHistory-calcChart-chart2 {
-  width: 150px;
-  height: 150px;
-  background-color: transparent;
-  border: 35px solid #0F9BFF;
-  border-left: 35px solid transparent;
-  border-radius: 50%;
-  box-shadow: 5px -10px 10px 0px grey inset;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  transform: translate(-35px, -35px) rotate(225deg);
+  width: 10rem;
 }
 
 .siderHistory-calcChart-credit {
   position: absolute;
-  top: -50px;
-  left: -70px;
+  top: -0.8rem;
+  left: -4.6rem;
   color: #0F9BFF;
   font-size: large;
 }
 
 .siderHistory-calcChart-interests {
   position: absolute;
-  bottom: -20px;
-  right: -70px;
+  bottom: -1.6rem;
+  right: -4.6rem;
   color: #9E107F;
   font-size: large;
 }
 
 .siderHistory-calcChart-bottomLine {
-  margin: 20px;
-  margin-top: 50px;
-  height: 2px;
+  margin: 2.2rem;
+  margin-top: 2.9rem;
+  height: 1px;
   background-color: #9E107F;
 }
 

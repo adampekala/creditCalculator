@@ -18,8 +18,8 @@ const DonatChart = ({amount, interests}) => {
                 label: 'Wartość',
                 data: [capitalRate, interestsRate],
                 backgroundColor: [
-                    '#0F9BFF',
                     '#9E107F',
+                    '#0F9BFF',
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
@@ -30,12 +30,7 @@ const DonatChart = ({amount, interests}) => {
         ],
     };
     return (
-
-            <div>
                 <Doughnut  data={data} />
-            </div>
-
-
     )
 
 }

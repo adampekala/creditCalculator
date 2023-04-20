@@ -65,14 +65,18 @@ class SiderHistory extends Component {
                         "---"}
                 </p>
                 <div className={"siderHistory-calcChart-chart"}>
-                    <span className={"siderHistory-calcChart-credit"}>Kredyt(tutaj)<br/>{this.state.userDataChartToDisplay === "ble" ? false : 100 - +this.state.userDataChartToDisplay.rate}%</span>
+                    <span className={"siderHistory-calcChart-credit"}>
+                        Kredyt(tutaj)
+                        <br/>{this.state.userDataChartToDisplay === "ble" ? false : 100 - +this.state.userDataChartToDisplay.rate}%
+                    </span>
 
                     <DonatChart amount={1000} interests={0.32}/>
 
                     <span className={"siderHistory-calcChart-interests"}>
                     Odsetki
                     <br/>
-                    {this.state.userDataChartToDisplay === "ble" ? false : this.state.userDataChartToDisplay.rate}%</span>
+                    {this.state.userDataChartToDisplay === "ble" ? false : this.state.userDataChartToDisplay.rate}%
+                    </span>
                 </div>
                 <div className={"siderHistory-calcChart-bottomLine"}></div>
 
