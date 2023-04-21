@@ -4,19 +4,14 @@ import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const DonatChart = ({amount, interests}) => {
+const DonatChart = ({capital, interests}) => {
 
-    const capital = amount;
-    const interestsAmount = capital * interests;
-    const payment = capital + interestsAmount;
-    const capitalRate = capital / payment;
-    const interestsRate = interestsAmount / payment
     const data = {
         // labels: ['Kapitał', 'Odsetki'],
         datasets: [
             {
                 label: 'Wartość',
-                data: [capitalRate, interestsRate],
+                data: [capital, interests],
                 backgroundColor: [
                     '#9E107F',
                     '#0F9BFF',

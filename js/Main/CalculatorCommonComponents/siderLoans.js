@@ -8,12 +8,13 @@ import fnKredytZmiennaRata from "../../calculationFunctions/fnKredytZmiennaRata"
 import fnKredytStalaRata from "../../calculationFunctions/fnKredytStalaRata";
 import KredytStalaRata from "../../calculationFunctions/fnKredytStalaRata";
 import KredytZmiennaRata from "../../calculationFunctions/fnKredytZmiennaRata";
-class SiderHistory extends Component {
+import SiderLoansListItem from "./siderLoansListItem";
+class SiderHistoryLoans extends Component {
 
     state = {
-        userDataChart: this.props.userData.credits.length > 0 ? this.props.userData.credits[0]: "brak danych",
-        isAnyData: this.props.userData.credits.length > 0 ? "true" : "false",
-        userDataChartToDisplay: this.props.userData.credits.length > 0 ? this.props.userData.credits[0] : "ble"
+        userDataChart: this.props.userData.loans.length > 0 ? this.props.userData.loans[0]: "brak danych",
+        isAnyData: this.props.userData.loans.length > 0 ? "true" : "false",
+        userDataChartToDisplay: this.props.userData.loans.length > 0 ? this.props.userData.loans[0] : "ble"
     };
 
     // chartInterestsFn = (amount, rate, years, isFixedPayment) => {
@@ -29,7 +30,7 @@ class SiderHistory extends Component {
         // else {
         //     return KredytZmiennaRata.ileKapitaluWSplacie(amount, rate, years)
         return 2;
-   }
+    }
 
 
     btnDeleteFn = (id) => {
@@ -73,15 +74,15 @@ class SiderHistory extends Component {
                 <h2 className={"siderHistory-title mainColor"}>Twoje obliczenia</h2>
                 <p className={"siderHistory-calcName contrastColor"}>{type}</p>
                 <ul className={"siderHistory-calcList"}>
-                    {userData.credits.map((el, i) => <SiderListItem key={i} data={el} index={i} setPaymentArrFn={this.props.creatingArrayToShow} creatingPaginationFn={this.props.creatingPagination} setDisplayShowCalc={this.props.setDisplayShowCalc} btnChangeChart={this.btnChangeChartFn} btnDelete={this.btnDeleteFn}/>)}
+                    {userData.loans.map((el, i) => <SiderLoansListItem key={i} data={el} index={i} setPaymentArrFn={this.props.creatingArrayToShow} creatingPaginationFn={this.props.creatingPagination} setDisplayShowCalc={this.props.setDisplayShowCalc} btnChangeChart={this.btnChangeChartFn} btnDelete={this.btnDeleteFn}/>)}
                 </ul>
                 <p className={"siderHistory-calcChart-title mainColor"}>
                     {this.state.isAnyData === "true" ?
                         this.state.userDataChartToDisplay.dateString :
                         "Brak danych"
                     } | {this.state.isAnyData === "true" ?
-                        `${this.state.userDataChartToDisplay.rate}%` :
-                        "---"}
+                    `${this.state.userDataChartToDisplay.rate}%` :
+                    "---"}
                 </p>
                 <div className={"siderHistory-calcChart-chart"}>
                     <span className={"siderHistory-calcChart-credit"}>
@@ -94,7 +95,7 @@ class SiderHistory extends Component {
                     <span className={"siderHistory-calcChart-interests"}>
                     Odsetki
                     <br/>
-                    {this.state.userDataChartToDisplay === "ble" ? false : this.state.userDataChartToDisplay.rate}%
+                        {this.state.userDataChartToDisplay === "ble" ? false : this.state.userDataChartToDisplay.rate}%
                     </span>
                 </div>
                 <div className={"siderHistory-calcChart-bottomLine"}></div>
@@ -104,4 +105,4 @@ class SiderHistory extends Component {
     }
 }
 
-export default SiderHistory;
+export default SiderHistoryLoans;

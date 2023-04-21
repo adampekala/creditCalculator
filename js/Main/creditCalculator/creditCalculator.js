@@ -10,7 +10,7 @@ const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
     const [amount, setAmount] = useState("Wpisz kwotę kredytu");
     const [rate, setRate] = useState("Wpisz wysokość odsetek");
     const [period, setPeriod] = useState("Wpisz okres kredytu w latach");
-    const [creditType, setCreditType] = useState("stałaRata");
+    const [isPaymentFixed, setIsPayment] = useState("true");
     const [isSent, setIsSent] = useState(false);
 
     //TODO
@@ -19,7 +19,7 @@ const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
     const {id, name, credits, loans, deposits, bonds} = userDataBase;
 
     const handleRadioChange = (e) => {
-        setCreditType(e.target.value);
+        setIsPayment(e.target.value);
     };
 
     const handleAmountFocus = (e) => {
@@ -62,7 +62,7 @@ const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
     const [paymentArrPages, setPaymentArrPages] = useState(undefined);
     const [whichPage, setWhichPage] = useState(1);
 
-    const handleClick = (e) => {
+    const handleCalculate = (e) => {
         e.preventDefault();
 
         let newCredit = {
@@ -70,13 +70,24 @@ const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
             dateString: format(new Date(), 'dd-MMM-yyyy'),
             amount: amount,
             rate: rate,
+            isPaymentFixed: isPaymentFixed,
             creditPeriod: period
         };
 
         let arr = [];
-        for (let i = 0; i < newCredit.creditPeriod*12; i++ ) {
-            arr.push({amount: +amount, interests: +amount * ((+rate)/100), payment: +amount + (+amount * ((+rate)/100)) })
+        //TODO tabela obliczeń
+        if (isPaymentFixed === "true") {
+            for (let i = 0; i < newCredit.creditPeriod*12; i++ ) {
+                arr.push({amount: +amount, interests: +amount * ((+rate)/100), payment: +amount + (+amount * ((+rate)/100)) })
+            }
         }
+        else {
+            for (let i = 0; i < newCredit.creditPeriod*12; i++ ) {
+                arr.push({amount: +amount, interests: +amount * ((+rate)/100), payment: +amount + (+amount * ((+rate)/100)) })
+            }
+        }
+
+
         setPaymentArr(arr);
 
         let pages = Math.ceil((newCredit.creditPeriod * 12)/10);
@@ -106,7 +117,7 @@ const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
         setAmount("Wpisz kwotę kredytu");
         setRate("Wpisz wysokość odsetek");
         setPeriod("Wpisz okres kredytu w latach");
-        setCreditType("stałaRata");
+        setIsPaymentFixed(true);
         setWhichPage(1);
     }
 
@@ -160,11 +171,11 @@ const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {
                             </label>
 
                             <div className={"radio"}>
-                                <input type={"radio"} name="stałaRata" value={"stałaRata"} onChange={handleRadioChange} checked={creditType === "stałaRata"}/><label>Rata stała</label>
-                                <input type={"radio"} name="zmiennaRata" value={"zmiennaRata"} onChange={handleRadioChange} checked={creditType === "zmiennaRata"}/><label>Rata zmienna</label>
+                                <input type={"radio"} name="rataStała" value={"true"} onChange={handleRadioChange} checked={isPaymentFixed === "true"}/><label>Rata stała</label>
+                                <input type={"radio"} name="rataZmienna" value={"false"} onChange={handleRadioChange} checked={isPaymentFixed === "false"}/><label>Rata zmienna</label>
                             </div>
 
-                            <button type={"submit"} className={"btnOblicz"} onClick={handleClick}>Oblicz</button>
+                            <button type={"submit"} className={"btnOblicz"} onClick={handleCalculate}>Oblicz</button>
                         </form>
                     </div>
                 }

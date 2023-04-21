@@ -16,6 +16,7 @@ import DepositCalculator from "./Main/depositCalculator/depositCalculator";
 import DonatChart from "./Main/CalculatorCommonComponents/donatChart";
 import InvalidPage from "./InvalidPage/invalidPage";
 import PageDontExists from "./InvalidPage/pageDontExists";
+import Test from "./InvalidPage/test";
 
 const container = document.getElementById("app");
 const root = createRoot(container);
@@ -29,6 +30,18 @@ const Application = () => {
     const creditsFilter = (id) => {
         let newCreditsArr = credits.filter((el, i) => {return i !== id})
         setUsersCalculations({...usersCalculations, credits: newCreditsArr})
+    }
+    const loansFilter = (id) => {
+        let newLoanArr = loans.filter((el, i) => {return i !== id})
+        setUsersCalculations({...usersCalculations, loans: newLoanArr})
+    }
+    const depositsFilter = (id) => {
+        let newDepositsArr = deposits.filter((el, i) => {return i !== id})
+        setUsersCalculations({...usersCalculations, deposits: newDepositsArr})
+    }
+    const bondsFilter = (id) => {
+        let newBondsArr = bonds.filter((el, i) => {return i !== id})
+        setUsersCalculations({...usersCalculations, bonds: newBondsArr})
     }
 
     return (
@@ -76,19 +89,19 @@ const Application = () => {
                             ?
                             <InvalidPage />
                             :
-                            <LoanCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations} filter={creditsFilter}/>}/>
+                            <LoanCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations} filter={loansFilter}/>}/>
 
                         <Route path='deposit' element={!logged
                             ?
                             <InvalidPage />
                             :
-                            <DepositCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations} filter={creditsFilter}/>}/>
+                            <DepositCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations} filter={depositsFilter}/>}/>
 
                         <Route path='bond' element={!logged
                             ?
                             <InvalidPage />
                             :
-                            <BondCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations} filter={creditsFilter}/>}/>
+                            <BondCalculator userLogIn={logged} userData={usersCalculations} setUserData={setUsersCalculations} filter={bondsFilter}/>}/>
                     </Route>
                     <Route
                         path='userData'
@@ -102,7 +115,7 @@ const Application = () => {
                     }
                     />
 
-                    <Route path='/test' element={logged ? null: <InvalidPage />}/>
+                    <Route path='/test' element={<Test/>}/>
                     <Route path='*' element={<PageDontExists />}/>
                 </Route>
 

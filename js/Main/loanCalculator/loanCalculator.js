@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import Navigation from "../CalculatorCommonComponents/navigation";
 import SiderHistory from "../CalculatorCommonComponents/sider";
+import { format, compareAsc } from 'date-fns'
+import SiderHistoryLoans from "../CalculatorCommonComponents/siderLoans";
 
 const LoanCalculator = ({userLogIn, userData, setUserData, filter}) => {
     const inputStyling = {display: "block", position: "relative", width: "400px"};
@@ -9,14 +11,16 @@ const LoanCalculator = ({userLogIn, userData, setUserData, filter}) => {
     const [amount, setAmount] = useState("Wpisz kwotę kredytu");
     const [rate, setRate] = useState("Wpisz wysokość odsetek");
     const [period, setPeriod] = useState("Wpisz okres kredytu w latach");
-    const [creditType, setCreditType] = useState("stałaRata");
+    const [isLoanSimple, setIsLoanSimple] = useState("true");
     const [isSent, setIsSent] = useState(false);
+
+    //TODO
     const [userDataBase, setUserDataBase] = useState(userData);
 
     const {id, name, credits, loans, deposits, bonds} = userDataBase;
 
     const handleRadioChange = (e) => {
-        setCreditType(e.target.value);
+        setIsLoanSimple(e.target.value);
     };
 
     const handleAmountFocus = (e) => {
@@ -55,21 +59,67 @@ const LoanCalculator = ({userLogIn, userData, setUserData, filter}) => {
         e.target.value === "" && setPeriod("Wpisz okres kredytu w latach");
     }
 
+    const [paymentArr, setPaymentArr] = useState(undefined);
+    const [paymentArrPages, setPaymentArrPages] = useState(undefined);
+    const [whichPage, setWhichPage] = useState(1);
 
-    const handleClick = (e) => {
+    const handleCalculate = (e) => {
         e.preventDefault();
-        let newCredit = {
+
+        let newLoan = {
             date: new Date(),
+            dateString: format(new Date(), 'dd-MMM-yyyy'),
             amount: amount,
             rate: rate,
-            creditPeriod: period
+            isLoanSimple: isLoanSimple,
+            loanPeriod: period
         };
-        console.log(newCredit);
-        let creditsArr = [...credits, newCredit];
 
-        setUserData((prev) => ({...prev, credits: creditsArr}));
+        let arr = [];
+        //TODO tabela obliczeń
+        if (isLoanSimple === "true") {
+            for (let i = 0; i < newLoan.loanPeriod*12; i++ ) {
+                arr.push({amount: +amount, interests: +amount * ((+rate)/100), payment: +amount + (+amount * ((+rate)/100)) })
+            }
+        }
+        else {
+            for (let i = 0; i < newLoan.loanPeriod*12; i++ ) {
+                arr.push({amount: +amount, interests: +amount * ((+rate)/100), payment: +amount + (+amount * ((+rate)/100)) })
+            }
+        }
+
+
+        setPaymentArr(arr);
+
+        let pages = Math.ceil((newLoan.loanPeriod * 12)/10);
+        setPaymentArrPages(pages);
+
+        console.log(newLoan);
+        let loansArr = [...loans, newLoan];
+
+        setUserData((prev) => ({...prev, loans: loansArr}));
+        setUserDataBase((prev) => ({...prev, loans: loansArr}))
 
         setDisplayShowCalc(true);
+    }
+
+    const handleNextPage = () => {
+        setWhichPage((prev)=> prev < paymentArrPages ? prev + 1 : paymentArrPages)
+    }
+
+    const handlePreviousPage = () => {
+        setWhichPage((prev)=> prev > 1 ? prev - 1 : 1)
+    }
+
+    const handleBackToCalculations = () => {
+        setDisplayShowCalc(false);
+        setPaymentArr(undefined);
+        setPaymentArrPages(undefined);
+        setAmount("Wpisz kwotę kredytu");
+        setRate("Wpisz wysokość odsetek");
+        setPeriod("Wpisz okres kredytu w latach");
+        setIsLoanSimple("true");
+        setWhichPage(1);
     }
 
     const handleSubmit = (e) => {
@@ -81,14 +131,33 @@ const LoanCalculator = ({userLogIn, userData, setUserData, filter}) => {
             <div className="main">
                 <Navigation/>
                 {displayShowCalc ?
-                    <div className="mainCalculator">
-                        <h1>Twoje obliczenia</h1>
-                        <p>Tabela</p>
-                        <button type={"button"} className={"btnOblicz"} onClick={handleClick}>Powrót do obliczeń</button>
+                    <div className="mainCalculator creditCalculatorCalculationsDisplay">
+                        <h1 style={{margin: "1rem 0 0 0"}}>Twoje obliczenia</h1>
+                        <div className={"creditCalculatorCalculationsDisplay-list"}>
+                            <p style={{display: "flex", justifyContent: "space-between", gap: "20px", color: "#9E107F", borderBottom: "3px double #9E107F"}}><span>RATA</span><span>KAPITAŁ</span><span>ODSETKI</span><span>WPŁATA</span></p>
+                            {paymentArr
+                                .filter((el, i) => i > (whichPage - 1) * 10 && i <= whichPage * 10)
+                                .map((el, i) => <p key={i} style={{borderBottom: "1px solid #9E107F", display: "flex", justifyContent: "space-between", color: "#9E107F"}}>
+                                    <span>nr {(i + 1) + ((whichPage - 1)*10)}</span>
+                                    <span>{el.amount}</span>
+                                    <span>{el.interests}</span>
+                                    <span>{el.payment}</span>
+                                </p>)}
+
+                        </div>
+
+                        <div style={{display: "flex", alignItems: "center"}}>
+                            <button type={"button"} className={"buttonPrev"} onClick={handlePreviousPage}></button>
+                            <span style={{color: "#9E107F", fontSize: "0.8rem"}}>{whichPage} strona z {paymentArrPages}</span>
+                            <button type={"button"} className={"buttonNext"} onClick={handleNextPage}></button>
+
+                        </div>
+
+                        <button type={"button"} className={"creditCalculator-btnBackToCalculations"} onClick={handleBackToCalculations}>Powrót do obliczeń</button>
                     </div>
                     :
                     <div className="mainCalculator">
-                        <h1>Oblicz pożyczkę</h1>
+                        <h1>Oblicz raty kredytu</h1>
                         <form onSubmit={handleSubmit}>
                             <label style={inputStyling}>
                                 <input type={"text"} name={"amount"} value={amount} onFocus={handleAmountFocus} onChange={handleAmountChange} onBlur={handleAmountBlur}/><span className={"inputAmount-caurrency"} style={{display: "block", position: "absolute"}}>PLN</span>
@@ -103,19 +172,22 @@ const LoanCalculator = ({userLogIn, userData, setUserData, filter}) => {
                             </label>
 
                             <div className={"radio"}>
-                                <input type={"radio"} name="stałaRata" value={"stałaRata"} onChange={handleRadioChange} checked={creditType === "stałaRata"}/><label>Rata stała</label>
-                                <input type={"radio"} name="zmiennaRata" value={"zmiennaRata"} onChange={handleRadioChange} checked={creditType === "zmiennaRata"}/><label>Rata zmienna</label>
+                                <input type={"radio"} name="rataStała" value={"true"} onChange={handleRadioChange} checked={isLoanSimple === "true"}/><label>Rata stała</label>
+                                <input type={"radio"} name="rataZmienna" value={"false"} onChange={handleRadioChange} checked={isLoanSimple === "false"}/><label>Rata zmienna</label>
                             </div>
 
-                            <button type={"submit"} className={"btnOblicz"} onClick={handleClick}>Oblicz</button>
+                            <button type={"submit"} className={"btnOblicz"} onClick={handleCalculate}>Oblicz</button>
                         </form>
                     </div>
                 }
 
             </div>
-            <SiderHistory type={"Kredyt/y"} userData={userData} setUserData={setUserData} btnMinusFn={filter}/>
-        </div>
+
+            <SiderHistoryLoans type={"Pożyczka/i"} userData={userData} setUserData={setUserData} setCreditInfo={setUserDataBase} creatingArrayToShow={setPaymentArr} creatingPagination={setPaymentArrPages} setDisplayShowCalc={setDisplayShowCalc} btnMinusFn={filter}/>
+
+            </div>
     )
 }
 
 export default LoanCalculator;
+

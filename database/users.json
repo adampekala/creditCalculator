@@ -112,39 +112,38 @@
       "name": "Adam",
       "credits": [
         {
-          "date": "2023-04-18T19:22:33.793Z",
-          "dateString": "18-Apr-2023",
-          "amount": "1111",
-          "rate": "3",
-          "creditPeriod": "3"
-        },
-        {
-          "date": "2023-04-18T19:40:24.108Z",
-          "dateString": "18-Apr-2023",
-          "amount": "312321",
-          "rate": "1",
+          "date": "2023-04-21T20:42:13.072Z",
+          "dateString": "21-Apr-2023",
+          "amount": "500000",
+          "rate": "12",
+          "isPaymentFixed": "true",
           "creditPeriod": "1"
         },
         {
-          "date": "2023-04-18T19:40:33.750Z",
-          "dateString": "18-Apr-2023",
-          "amount": "3333",
-          "rate": "33",
+          "date": "2023-04-21T20:42:27.791Z",
+          "dateString": "21-Apr-2023",
+          "amount": "54545",
+          "rate": "12",
+          "isPaymentFixed": "true",
           "creditPeriod": "2"
-        },
-        {
-          "date": "2023-04-20T18:21:45.574Z",
-          "dateString": "20-Apr-2023",
-          "amount": "35000",
-          "rate": "11",
-          "creditPeriod": "15"
         }
       ],
       "loans": [
         {
-          "date": "1988.12.03",
-          "amount": "65487.00",
-          "rate": "0.88"
+          "date": "2023-04-21T20:34:19.754Z",
+          "dateString": "21-Apr-2023",
+          "amount": "10000",
+          "rate": "13",
+          "isLoanSimple": "true",
+          "loanPeriod": "3"
+        },
+        {
+          "date": "2023-04-21T20:40:08.866Z",
+          "dateString": "21-Apr-2023",
+          "amount": "3000",
+          "rate": "3",
+          "isLoanSimple": "true",
+          "loanPeriod": "5"
         }
       ],
       "deposits": [],

@@ -8,6 +8,7 @@
 @import "navigation";
 @import "mainContainer";
 @import "creditCalculator";
+@import "loanCalculator";
 body {
   margin: 0;
   box-sizing: border-box;
@@ -71,6 +72,7 @@ input {
   color: #D7CBD4;
   font-size: 1.2rem;
   position: relative;
+  padding-left: 1rem;
 }
 
 .inputAmount-caurrency {
