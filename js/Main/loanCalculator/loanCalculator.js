@@ -1,16 +1,16 @@
 import React, {useState} from "react";
 import Navigation from "../CalculatorCommonComponents/navigation";
-import SiderHistory from "../CalculatorCommonComponents/sider";
+import SiderHistory from "../creditCalculator/sider";
 import { format, compareAsc } from 'date-fns'
-import SiderHistoryLoans from "../CalculatorCommonComponents/siderLoans";
+import SiderHistoryLoans from "./siderLoans";
 
 const LoanCalculator = ({userLogIn, userData, setUserData, filter}) => {
     const inputStyling = {display: "block", position: "relative", width: "400px"};
     const [displayShowCalc, setDisplayShowCalc] = useState(false);
     const API = "http://localhost:3005";
-    const [amount, setAmount] = useState("Wpisz kwotę kredytu");
+    const [amount, setAmount] = useState("Wpisz kwotę pożyczki");
     const [rate, setRate] = useState("Wpisz wysokość odsetek");
-    const [period, setPeriod] = useState("Wpisz okres kredytu w latach");
+    const [period, setPeriod] = useState("Wpisz okres pożyczki w latach");
     const [isLoanSimple, setIsLoanSimple] = useState("true");
     const [isSent, setIsSent] = useState(false);
 
@@ -24,7 +24,7 @@ const LoanCalculator = ({userLogIn, userData, setUserData, filter}) => {
     };
 
     const handleAmountFocus = (e) => {
-        e.target.value === "Wpisz kwotę kredytu" && setAmount("");
+        e.target.value === "Wpisz kwotę pożyczki" && setAmount("");
     }
 
     const handleAmountChange = (e) => {
@@ -32,7 +32,7 @@ const LoanCalculator = ({userLogIn, userData, setUserData, filter}) => {
     }
 
     const handleAmountBlur = (e) => {
-        e.target.value === "" && setAmount("Wpisz kwotę kredytu");
+        e.target.value === "" && setAmount("Wpisz kwotę pożyczki");
     }
 
     const handleRateFocus = (e) => {
@@ -48,7 +48,7 @@ const LoanCalculator = ({userLogIn, userData, setUserData, filter}) => {
     }
 
     const handlePeriodFocus = (e) => {
-        e.target.value === "Wpisz okres kredytu w latach" && setPeriod("");
+        e.target.value === "Wpisz okres pożyczki w latach" && setPeriod("");
     }
 
     const handlePeriodChange = (e) => {
@@ -56,7 +56,7 @@ const LoanCalculator = ({userLogIn, userData, setUserData, filter}) => {
     }
 
     const handlePeriodBlur = (e) => {
-        e.target.value === "" && setPeriod("Wpisz okres kredytu w latach");
+        e.target.value === "" && setPeriod("Wpisz okres pożyczki w latach");
     }
 
     const [paymentArr, setPaymentArr] = useState(undefined);
@@ -115,9 +115,9 @@ const LoanCalculator = ({userLogIn, userData, setUserData, filter}) => {
         setDisplayShowCalc(false);
         setPaymentArr(undefined);
         setPaymentArrPages(undefined);
-        setAmount("Wpisz kwotę kredytu");
+        setAmount("Wpisz kwotę pożyczki");
         setRate("Wpisz wysokość odsetek");
-        setPeriod("Wpisz okres kredytu w latach");
+        setPeriod("Wpisz okres pożyczki w latach");
         setIsLoanSimple("true");
         setWhichPage(1);
     }
@@ -157,7 +157,7 @@ const LoanCalculator = ({userLogIn, userData, setUserData, filter}) => {
                     </div>
                     :
                     <div className="mainCalculator">
-                        <h1>Oblicz raty kredytu</h1>
+                        <h1>Oblicz spłatę pożyczki</h1>
                         <form onSubmit={handleSubmit}>
                             <label style={inputStyling}>
                                 <input type={"text"} name={"amount"} value={amount} onFocus={handleAmountFocus} onChange={handleAmountChange} onBlur={handleAmountBlur}/><span className={"inputAmount-caurrency"} style={{display: "block", position: "absolute"}}>PLN</span>
@@ -172,8 +172,8 @@ const LoanCalculator = ({userLogIn, userData, setUserData, filter}) => {
                             </label>
 
                             <div className={"radio"}>
-                                <input type={"radio"} name="rataStała" value={"true"} onChange={handleRadioChange} checked={isLoanSimple === "true"}/><label>Rata stała</label>
-                                <input type={"radio"} name="rataZmienna" value={"false"} onChange={handleRadioChange} checked={isLoanSimple === "false"}/><label>Rata zmienna</label>
+                                <input type={"radio"} name="rataStała" value={"true"} onChange={handleRadioChange} checked={isLoanSimple === "true"}/><label>Odsetki proste</label>
+                                <input type={"radio"} name="rataZmienna" value={"false"} onChange={handleRadioChange} checked={isLoanSimple === "false"}/><label>Odsetki składne</label>
                             </div>
 
                             <button type={"submit"} className={"btnOblicz"} onClick={handleCalculate}>Oblicz</button>

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Navigation from "../CalculatorCommonComponents/navigation";
-import SiderHistory from "../CalculatorCommonComponents/sider";
+import SiderHistory from "./sider";
 import { format, compareAsc } from 'date-fns'
 
 const CreditCalculator = ({userLogIn, userData, setUserData, filter}) => {

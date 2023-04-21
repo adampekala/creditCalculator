@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import { FaBeer, FaArchive } from 'react-icons/fa';
 import { MdPieChartOutline } from "react-icons/md"
 import { HiMinusSm } from "react-icons/hi"
-import SiderListItem from "./siderListItem";
-import DonatChart from "./donatChart";
+import SiderListItem from "../creditCalculator/siderListItem";
+import DonatChart from "../CalculatorCommonComponents/donatChart";
 import fnKredytZmiennaRata from "../../calculationFunctions/fnKredytZmiennaRata";
 import fnKredytStalaRata from "../../calculationFunctions/fnKredytStalaRata";
 import KredytStalaRata from "../../calculationFunctions/fnKredytStalaRata";
 import KredytZmiennaRata from "../../calculationFunctions/fnKredytZmiennaRata";
-import SiderLoansListItem from "./siderLoansListItem";
-class SiderHistoryLoans extends Component {
+import SiderDepositsListItem from "./siderDepositListItem";
+
+class SiderHistoryDeposits extends Component {
 
     state = {
-        userDataChart: this.props.userData.loans.length > 0 ? this.props.userData.loans[0]: "brak danych",
-        isAnyData: this.props.userData.loans.length > 0 ? "true" : "false",
-        userDataChartToDisplay: this.props.userData.loans.length > 0 ? this.props.userData.loans[0] : "ble"
+        userDataChart: this.props.userData.deposits.length > 0 ? this.props.userData.deposits[0]: "brak danych",
+        isAnyData: this.props.userData.deposits.length > 0 ? "true" : "false",
+        userDataChartToDisplay: this.props.userData.deposits.length > 0 ? this.props.userData.deposits[0] : "ble"
     };
 
     // chartInterestsFn = (amount, rate, years, isFixedPayment) => {
@@ -53,7 +54,9 @@ class SiderHistoryLoans extends Component {
     }
 
     btnChangeChartFn = (data) => {
-        this.setState({userDataChartToDisplay: data})
+        this.setState({userDataChartToDisplay: data});
+        this.setState({userDataChart: data});
+        this.setState({isAnyData: "true"})
     }
 
     dateConversion = (d) => {
@@ -74,7 +77,7 @@ class SiderHistoryLoans extends Component {
                 <h2 className={"siderHistory-title mainColor"}>Twoje obliczenia</h2>
                 <p className={"siderHistory-calcName contrastColor"}>{type}</p>
                 <ul className={"siderHistory-calcList"}>
-                    {userData.loans.map((el, i) => <SiderLoansListItem key={i} data={el} index={i} setPaymentArrFn={this.props.creatingArrayToShow} creatingPaginationFn={this.props.creatingPagination} setDisplayShowCalc={this.props.setDisplayShowCalc} btnChangeChart={this.btnChangeChartFn} btnDelete={this.btnDeleteFn}/>)}
+                    {userData.deposits.map((el, i) => <SiderDepositsListItem key={i} data={el} index={i} setPaymentArrFn={this.props.creatingArrayToShow} creatingPaginationFn={this.props.creatingPagination} setDisplayShowCalc={this.props.setDisplayShowCalc} btnChangeChart={this.btnChangeChartFn} btnDelete={this.btnDeleteFn}/>)}
                 </ul>
                 <p className={"siderHistory-calcChart-title mainColor"}>
                     {this.state.isAnyData === "true" ?
@@ -85,18 +88,18 @@ class SiderHistoryLoans extends Component {
                     "---"}
                 </p>
                 <div className={"siderHistory-calcChart-chart"}>
-                    <span className={"siderHistory-calcChart-credit"}>
-                        Kredyt(tutaj)
-                        <br/>{this.state.userDataChartToDisplay === "ble" ? false : 100 - +this.state.userDataChartToDisplay.rate}%
-                    </span>
-
-                    <DonatChart capital={this.state.userDataChartToDisplay === "ble" ? 100 : 100 - +this.state.userDataChartToDisplay.rate} interests={this.state.userDataChartToDisplay === "ble" ? 0 : this.state.userDataChartToDisplay.rate}/>
-
                     <span className={"siderHistory-calcChart-interests"}>
                     Odsetki
                     <br/>
                         {this.state.userDataChartToDisplay === "ble" ? false : this.state.userDataChartToDisplay.rate}%
                     </span>
+
+                    <DonatChart capital={this.state.userDataChartToDisplay === "ble" ? 100 : 100 - +this.state.userDataChartToDisplay.rate} interests={this.state.userDataChartToDisplay === "ble" ? 0 : this.state.userDataChartToDisplay.rate}/>
+                    <span className={"siderHistory-calcChart-credit"}>
+                        Depozyt
+                        <br/>{this.state.userDataChartToDisplay === "ble" ? false : 100 - +this.state.userDataChartToDisplay.rate}%
+                    </span>
+
                 </div>
                 <div className={"siderHistory-calcChart-bottomLine"}></div>
 
@@ -105,4 +108,4 @@ class SiderHistoryLoans extends Component {
     }
 }
 
-export default SiderHistoryLoans;
+export default SiderHistoryDeposits;

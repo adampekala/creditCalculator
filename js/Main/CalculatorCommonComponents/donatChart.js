@@ -13,8 +13,8 @@ const DonatChart = ({capital, interests}) => {
                 label: 'Wartość',
                 data: [capital, interests],
                 backgroundColor: [
-                    '#9E107F',
                     '#0F9BFF',
+                    '#9E107F'
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
