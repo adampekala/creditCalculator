@@ -159,17 +159,17 @@
 
 .siderHistory-calcChart-credit {
   position: absolute;
-  top: -0.8rem;
-  left: -4.6rem;
-  color: #0F9BFF;
+  bottom: -1.6rem;
+  right: -4.6rem;
+  color: #9E107F;
   font-size: large;
 }
 
 .siderHistory-calcChart-interests {
   position: absolute;
-  bottom: -1.6rem;
-  right: -4.6rem;
-  color: #9E107F;
+  top: -0.8rem;
+  left: -4.6rem;
+  color: #0F9BFF;
   font-size: large;
 }
 

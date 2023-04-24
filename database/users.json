@@ -126,6 +126,14 @@
           "rate": "12",
           "isPaymentFixed": "true",
           "creditPeriod": "2"
+        },
+        {
+          "date": "2023-04-22T10:22:55.145Z",
+          "dateString": "22-Apr-2023",
+          "amount": "2222",
+          "rate": "34",
+          "isPaymentFixed": "true",
+          "creditPeriod": "5"
         }
       ],
       "loans": [
@@ -136,14 +144,6 @@
           "rate": "13",
           "isLoanSimple": "true",
           "loanPeriod": "3"
-        },
-        {
-          "date": "2023-04-21T20:40:08.866Z",
-          "dateString": "21-Apr-2023",
-          "amount": "3000",
-          "rate": "3",
-          "isLoanSimple": "true",
-          "loanPeriod": "5"
         },
         {
           "date": "2023-04-21T21:13:00.293Z",
@@ -168,6 +168,22 @@
           "rate": "1",
           "isLoanSimple": "true",
           "loanPeriod": "1"
+        },
+        {
+          "date": "2023-04-22T08:44:45.658Z",
+          "dateString": "22-Apr-2023",
+          "amount": "300000",
+          "rate": "12",
+          "isLoanSimple": "true",
+          "loanPeriod": "3"
+        },
+        {
+          "date": "2023-04-22T08:45:44.435Z",
+          "dateString": "22-Apr-2023",
+          "amount": "40000",
+          "rate": "2",
+          "isLoanSimple": "true",
+          "loanPeriod": "4"
         }
       ],
       "deposits": [],

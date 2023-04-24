@@ -1,13 +1,15 @@
 import React, {useState} from "react";
 import {MdLockOutline, MdQuestionMark, MdPowerSettingsNew, MdCalculate, MdLock, MdPersonPin} from "react-icons/md";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {BsPersonCircle, BsFillCalculatorFill} from "react-icons/bs";
+
 
 
 const Header = ({userLogIn, logOut, userData}) => {
     const iconsStyle = {width: "50px", height: "50px", color: "white"};
 
         const API = "http://localhost:3005"
+    const navigation = useNavigate();
 
         const handleLogOut = () => {
             console.log(userData);
@@ -16,7 +18,7 @@ const Header = ({userLogIn, logOut, userData}) => {
                 method: "PUT",
                 body: JSON.stringify(userData),
                 headers: {"Content-type": "application/json"}
-            }).then(response => response.json()).then(data => {console.log(data); logOut(false)}).catch(reject => console.log(reject))
+            }).then(response => response.json()).then(data => {logOut(false);navigation("/") }).catch(reject => console.log(reject))
 
         }
 
@@ -49,9 +51,9 @@ const Header = ({userLogIn, logOut, userData}) => {
                 </Link>
 
                 {userLogIn ?
-                    <Link to='/' className={"infoIconLink"} onClick={handleLogOut}>
+                    <span className={"infoIconLink"} onClick={handleLogOut}>
                         <MdPowerSettingsNew style={{width: "50px", height: "50px", color: "rgb(15, 170, 240)"}}/>
-                    </Link>
+                    </span>
                     :
                     null
                 }

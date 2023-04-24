@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Navigation from "../CalculatorCommonComponents/navigation";
 import { format, compareAsc } from 'date-fns'
 import SiderHistoryBonds from "./siderBond";
+import SiderBondHistoryTest from "./siderBondTest";
 
 const BondCalculator = ({userLogIn, userData, setUserData, filter}) => {
     const inputStyling = {display: "block", position: "relative", width: "400px"};
@@ -182,7 +183,7 @@ const BondCalculator = ({userLogIn, userData, setUserData, filter}) => {
 
             </div>
 
-            <SiderHistoryBonds type={"Obligacje"} userData={userData} setUserData={setUserData} setCreditInfo={setUserDataBase} creatingArrayToShow={setPaymentArr} creatingPagination={setPaymentArrPages} setDisplayShowCalc={setDisplayShowCalc} btnMinusFn={filter}/>
+            <SiderBondHistoryTest type={"Obligacje"} userData={userData} setUserData={setUserData} setCreditInfo={setUserDataBase} creatingArrayToShow={setPaymentArr} creatingPagination={setPaymentArrPages} setDisplayShowCalc={setDisplayShowCalc} btnMinusFn={filter}/>
 
         </div>
     )
